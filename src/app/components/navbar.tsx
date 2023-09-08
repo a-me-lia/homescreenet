@@ -115,7 +115,7 @@ export default function Navbar() {
                   transform: `translate(${barTranslate}px, -2px)`,
                 }}
                 className={`bg-neutral-900 h-[1px] ${
-                  loaded ? " md:transition-all duration-300 " : ""
+                  loaded ? "  " : ""
                 }`}
               ></div>
             </div>

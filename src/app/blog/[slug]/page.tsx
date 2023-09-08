@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Mdx } from "../../components/mdx";
@@ -6,6 +8,7 @@ import Balancer from "react-wrap-balancer";
 import ViewCounter from "../view-counter";
 import { getViewsCount } from "../../../lib/metrics";
 import Tag from "../tag";
+import { useState, useEffect } from "react";
 
 export async function generateMetadata({
   params,
