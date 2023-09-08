@@ -42,7 +42,7 @@ export function Mdx({ code }: MdxProps) {
     return (
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <Component components={{ ...components }} />
-      </article>
+      </article> 
     );
   }
   
