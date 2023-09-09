@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -39,6 +39,8 @@ export default function Navbar() {
 
   const [tabs, setTabs] = useState([false, false, false, false]);
 
+
+
   useEffect(() => {
     let toTab = "0";
     let temp = [false, false, false, false];
@@ -74,7 +76,7 @@ export default function Navbar() {
     }
     between -= 44;
 
-    setBarWidth(between);
+    setBarWidth(between)
     if (selectedTab > Number(toTab)) setBarTranslate(before + 2);
 
     setTimeout(() => {
@@ -83,7 +85,12 @@ export default function Navbar() {
     }, 350);
 
     setSelectedTab(Number(toTab));
-  }, [pathname, selectedTab, tabs]);
+  }, [barWidth, pathname, selectedTab, tabs]);
+
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+
 
   return (
     <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
@@ -115,7 +122,7 @@ export default function Navbar() {
                   transform: `translate(${barTranslate}px, -2px)`,
                 }}
                 className={`bg-neutral-900 h-[1px] ${
-                  loaded ? "  " : ""
+                  loaded ? "transition-all duration-300" : ""
                 }`}
               ></div>
             </div>

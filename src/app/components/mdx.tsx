@@ -1,8 +1,5 @@
-"use client"
-
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 
 interface MdxProps {
@@ -30,7 +27,7 @@ interface MdxProps {
   const CustomP = (props:any) => {
 
     return(
-      <p className="fancy">{props.children}</p>
+      <p className="fancy transition-opacity duration-500 mb-6">{props.children}</p>
     )
     }
 
@@ -50,60 +47,11 @@ interface MdxProps {
 
 export function Mdx({ code }: MdxProps) {
     const Component = useMDXComponent(code);
-    const [scroll, setScroll] = useState(0);
-    const [height, setHeight] = useState(0);
   
-    useEffect(function () {
-      if (typeof window !== "undefined") setHeight(window.innerHeight);
-    }, []);
-  
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", (event) => {
-        let scroll = scrollY;
-        //console.log(scroll)
-        setScroll(scroll);
-      });
-      window.addEventListener("resize", (event) => {
-        let height = innerHeight;
-        //console.log(scroll)
-        setHeight(height);
-      });
-    }
-  
-    useEffect(
-      function () {
-        for (let i = 0; i < document.getElementsByTagName("*").length; i++) {
-          let element = document.getElementsByTagName("*")[i];
-          if (element.className.search("fancy") != -1) {
-            if (
-              element.className.search("opacity-100 ") == -1 &&
-              element.className.search("opacity-10 ") == -1
-            )
-              element.className = element.className + " opacity-10 ";
-            if (height - element.getBoundingClientRect().top > 128) {
-              element.className = element.className.replace(
-                "opacity-10 ",
-                "opacity-100 ",
-              );
-            } else {
-              element.className = element.className.replace(
-                "opacity-100 ",
-                "opacity-10 ",
-              );
-            }
-            // if(i == 1)console.log(element.className)
-  
-            // if(i == 1)console.log(element.getBoundingClientRect().top )
-            // if(i == 1)console.log( height - element.getBoundingClientRect().top )
-          }
-        }
-      },
-      [height, scroll],
-    );
   
     return (
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
-        <Component components={{ ...components }} />
+        <Component components={{ ...components }} />2
       </article> 
     );
   }
