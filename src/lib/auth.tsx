@@ -18,6 +18,7 @@ if (result) {
   const token = credential?.accessToken;
   return {user, token}
 }
+return null
 }
 
 
