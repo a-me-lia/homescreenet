@@ -1,10 +1,6 @@
 "use server"
 import { queryBuilder } from '../../lib/planetscale';
-import { onAuthStateChanged, getAuth, GoogleAuthProvider, getRedirectResult, signInWithRedirect, User } from "firebase/auth";
-import { app } from "../../lib/firebase";
-
-import { useContext, createContext, createServerContext } from "react";
-
+import { getUser } from '@/lib/auth';
 
 import { SignIn, SignOut } from './buttons';
 import Form from './form';
@@ -23,33 +19,12 @@ async function getGuestbook() {
     return data;
   }
 
-  let user: User, credential, token;
-  const auth = getAuth(app);
-  
-  
-  
-  const provider = new GoogleAuthProvider()
-  provider.setCustomParameters({ prompt: "select_account" });
-  provider.addScope('profile');
-  provider.addScope('email');
-  
-
- async function signInGoogle() {
-  "use server";
-  
-  await signInWithRedirect(auth, provider);
-  
-  const result = await getRedirectResult(auth);
 
 
-  if (result) {
-     user = result.user;
-     credential = GoogleAuthProvider.credentialFromResult(result);
-     token = credential?.accessToken;
-  }
-  }
 
 export default async function Page(){
+
+  let user = getUser()
 
 
     let entries;
@@ -82,7 +57,7 @@ export default async function Page(){
             HIII
           </>
         ) : (
-          <SignIn func={signInGoogle} /> 
+          <SignIn /> 
         )}
         {entries?.map((entry) => (
           <div key={entry.id} className="flex flex-col space-y-1 mb-4">
