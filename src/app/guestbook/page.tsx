@@ -1,5 +1,4 @@
-import { AuthContextProvider } from '@/lib/authcontext';
-import { AuthContext } from '@/lib/authcontext';
+"use server"
 import { queryBuilder } from '../../lib/planetscale';
 import { onAuthStateChanged, getAuth, GoogleAuthProvider, getRedirectResult, signInWithRedirect, User } from "firebase/auth";
 import { app } from "../../lib/firebase";
@@ -10,12 +9,7 @@ import { useContext, createContext, createServerContext } from "react";
 import { SignIn, SignOut } from './buttons';
 import Form from './form';
 
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Guestbook | Matthew Guo',
-  description: 'ya gotta prove you were here',
-};
 
 
 async function getGuestbook() {
@@ -39,9 +33,9 @@ async function getGuestbook() {
   provider.addScope('profile');
   provider.addScope('email');
   
-  
-  
+
  async function signInGoogle() {
+  "use server";
   
   await signInWithRedirect(auth, provider);
   
@@ -56,6 +50,7 @@ async function getGuestbook() {
   }
 
 export default async function Page(){
+
 
     let entries;
   
@@ -76,7 +71,7 @@ export default async function Page(){
   
   
     return (
-            <section className='min-h-screen bg-white mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative'>
+      <section className='min-h-screen bg-white mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative'>
         <h1 className="font-bold text-2xl mb-8 tracking-tighter mt-48">
           sign my guestbook
         </h1>
@@ -87,7 +82,7 @@ export default async function Page(){
             HIII
           </>
         ) : (
-          <SignIn func={signInGoogle}  /> 
+          <SignIn func={signInGoogle} /> 
         )}
         {entries?.map((entry) => (
           <div key={entry.id} className="flex flex-col space-y-1 mb-4">
