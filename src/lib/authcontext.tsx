@@ -2,18 +2,16 @@
 import { onAuthStateChanged, getAuth, GoogleAuthProvider, getRedirectResult, signInWithRedirect, User } from "firebase/auth";
 import { app } from "./firebase";
 
-import { useContext, createContext } from "react";
+import { useContext, createContext, createServerContext } from "react";
 
 
-const auth = getAuth(app);
+
 
 type authContextType = User | undefined;
-
-let user: User, credential, token;
-
 export const AuthContext = createContext<authContextType>(undefined);
 
-
+let user: User, credential, token;
+const auth = getAuth(app);
 
 
 
@@ -38,7 +36,7 @@ if (result) {
 
 }
 
-export const AuthContextProvider = async({ children }:{children:React.ReactNode}) => {
+export const AuthContextProvider = ({ children }:{children:React.ReactNode}) => {
 
 return(
     <AuthContext.Provider value={user}>{children}</AuthContext.Provider>

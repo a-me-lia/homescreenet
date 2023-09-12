@@ -6,6 +6,7 @@ import { queryBuilder } from "../../lib/planetscale";
 
 import { revalidatePath } from "next/cache";
 import { AuthContext } from '@/lib/authcontext';
+import { User } from 'firebase/auth';
 
 
 
@@ -19,8 +20,8 @@ export async function saveGuestbookEntry(email:string, body: string, created_by:
     revalidatePath('/guestbook');
   }
 
-export default function Form() {
-    const user = useContext(AuthContext)
+export default function Form(props:{user:User}) {
+
   const formRef = useRef<HTMLFormElement>(null);
   const { pending } = useFormStatus();
   const [message, setMessage] = useState('')
@@ -31,7 +32,7 @@ export default function Form() {
       className="relative max-w-[500px]"
       ref={formRef}
       action={async (formData) => {
-        if(user)await saveGuestbookEntry(user..,message);
+        if(props.user)await saveGuestbookEntry(props.user.email!, message, props.user.displayName!);
         formRef.current?.reset();
       }}
     >
