@@ -1,6 +1,0 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Guestbook | Matthew Guo',
-  description: 'ya gotta prove you were here',
-};

@@ -6,8 +6,14 @@ import { queryBuilder } from "../../lib/planetscale";
 
 import { revalidatePath } from "next/cache";
 
-import { User } from 'firebase/auth';
 
+
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Guestbook | Matthew Guo',
+  description: 'ya gotta prove you were here',
+};
 
 
 
@@ -20,7 +26,7 @@ export async function saveGuestbookEntry(email:string, body: string, created_by:
     revalidatePath('/guestbook');
   }
 
-export default function Form(props:{user:User}) {
+export default function Form(props:{user:any}) {
 
   const formRef = useRef<HTMLFormElement>(null);
   const { pending } = useFormStatus();
@@ -32,7 +38,7 @@ export default function Form(props:{user:User}) {
       className="relative max-w-[500px]"
       ref={formRef}
       action={async (formData) => {
-        if(props.user)await saveGuestbookEntry(props.user.email!, message, props.user.displayName!);
+        if(props.user)await saveGuestbookEntry(props.user.email!, message, props.user.name!);
         formRef.current?.reset();
       }}
     >

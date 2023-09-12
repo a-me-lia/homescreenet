@@ -1,9 +1,6 @@
 "use server"
 import { queryBuilder } from '../../lib/planetscale';
-import { getUser } from '@/lib/auth';
-
-import { SignIn, SignOut } from './buttons';
-import Form from './form';
+import Client from './client';
 
 
 
@@ -22,13 +19,10 @@ async function getGuestbook() {
 
 
 
+
 export default async function Page(){
-
-  let user = getUser()
-
-
     let entries;
-  
+
     try {
       const [guestbookRes] = await Promise.allSettled([
         getGuestbook(),
@@ -47,18 +41,10 @@ export default async function Page(){
   
     return (
       <section className='min-h-screen bg-white mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative'>
-        <h1 className="font-bold text-2xl mb-8 tracking-tighter mt-48">
-          sign my guestbook
+        <h1 className="font-bold font-mono text-2xl mb-8 mt-32">
+          guestbook :p
         </h1>
-        {user ? (
-          <>
-            <Form user={user}/>
-            <SignOut />
-            HIII
-          </>
-        ) : (
-          <SignIn /> 
-        )}
+        <Client></Client>
         {entries?.map((entry) => (
           <div key={entry.id} className="flex flex-col space-y-1 mb-4">
             <div className="w-full text-sm break-words">
