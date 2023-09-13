@@ -1,5 +1,6 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
+import Image from "next/image";
 
 
 interface MdxProps {
@@ -39,10 +40,21 @@ interface MdxProps {
       )
       }
 
+      function ImageWithCaption(props:any) {
+
+        return(
+          <> <Image src={props.src} alt={props.alt} {...props} className="object-cover mt-6"></Image>
+          <p className="text-[14px] opacity-60 mt-2  mb-8">{props.caption}</p>
+          </>
+         
+        )
+        }
+
   const components = {
     a: CustomLink,
     p: CustomP,
-    h1: CustomH1
+    h1: CustomH1,
+    Image: ImageWithCaption
   };
 
 export function Mdx({ code }: MdxProps) {

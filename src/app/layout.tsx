@@ -2,6 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, Inter } from "next/font/google";
 import Navbar from "./components/navbar";
+import LayoutWrapper from "./layoutWrapper";
+
+import {GET, POST} from "./api/auth/[...nextauth]/route"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -35,10 +38,11 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
@@ -48,8 +52,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans  ${plexMono.variable} font-ibm `}
       >
+        <LayoutWrapper>
         <Navbar></Navbar>
         {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

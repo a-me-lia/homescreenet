@@ -2,7 +2,7 @@
 import { SignIn, SignOut } from './buttons';
 import Form from './form';
 import { useSession, signIn, signOut } from "next-auth/react"
-import { User } from 'next-auth';
+
 
 
 
