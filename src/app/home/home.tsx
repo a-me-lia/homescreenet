@@ -5,18 +5,11 @@ import Link from "next/link";
 
 
 export default function Home() {
-  const [selectedTab, setSelectedTab] = useState(0);
-  const [barWidth, setBarWidth] = useState<number>(0);
-  const [barTranslate, setBarTranslate] = useState<number>(0);
+
 
   const [scroll, setScroll] = useState(0);
-  const [scrolling, setScrolling] = useState(false);
 
   const [elements, setElements] = useState<number[]>([0, 1, 2, 3, 4]);
-
-  useEffect(function () {
-    setBarWidth(document.getElementById("0")?.clientWidth!);
-  }, []);
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", (event) => {
