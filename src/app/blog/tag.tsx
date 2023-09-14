@@ -1,6 +1,5 @@
 "use client";
 
-
 const bgColors = [
   "bg-red-500",
   "bg-green-500",
