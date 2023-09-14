@@ -44,7 +44,7 @@ export default function Tag({ tags }: { tags: string }) {
         <li
           className={`${
             bgColors[indexes[index]]
-          } rounded-md px-2 text-[14px] h-min`}
+          } rounded-md px-2 text-[14px] h-min bg-opacity-30`}
           key={index}
         >
           {entry}

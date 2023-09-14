@@ -37,7 +37,7 @@ export default async function BlogPage() {
                 {post.title}
               </p>
 
-              <div className="flex flex-row">
+              <div className="flex flex-row items-baseline">
                 {" "}
                 <ViewCounter
                   allViews={allViews}
