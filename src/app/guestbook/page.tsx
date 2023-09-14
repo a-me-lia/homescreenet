@@ -10,7 +10,7 @@ async function getGuestbook() {
     .limit(255)
     .execute();
 
-  return data;
+  return data.reverse();
 }
 
 export default async function Page() {
