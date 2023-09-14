@@ -20,7 +20,3 @@ export async function increment(slug: string) {
     .execute();
   return;
 }
-
-//heheh
-// sorry i owe you ummmmmmmm <you decide what  i owe you/>
-//wait im going to create a new table brb

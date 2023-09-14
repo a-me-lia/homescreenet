@@ -1,7 +1,5 @@
 "use client";
 
-import { Ultra } from "next/font/google";
-import { useEffect } from "react";
 
 const bgColors = [
   "bg-red-500",

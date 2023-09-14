@@ -9,21 +9,3 @@
 // provider.addScope('profile');
 // provider.addScope('email');
 
-// export async function signInGoogle() {
-
-//     await signInWithRedirect(auth, provider);
-//     console.log('gfsnjdkbhf')
-
-//     const result = await getRedirectResult(auth);
-
-//     if (result) {
-//         console.log('ehhe')
-//        user = result.user;
-//        credential = GoogleAuthProvider.credentialFromResult(result);
-//        token = credential?.accessToken;
-//     }else(        console.log('uihffy'))
-// }
-
-// export function getUser(){
-//     return user
-// }

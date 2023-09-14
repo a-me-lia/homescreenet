@@ -1,7 +1,7 @@
 "use client";
 import { SignIn, SignOut } from "./buttons";
 import Form from "./form";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function Client() {
   const { data: session } = useSession();
