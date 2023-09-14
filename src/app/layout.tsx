@@ -4,7 +4,7 @@ import { IBM_Plex_Sans, Inter } from "next/font/google";
 import Navbar from "./components/navbar";
 import LayoutWrapper from "./layoutWrapper";
 
-import {GET, POST} from "./api/auth/[...nextauth]/route"
+import {GET, POST} from "./api/auth/[...nextAuth]/route"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
