@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     title: "Matthew Guo",
     description: "冰淇淋",
     url: "https://homescree.net",
+    images: "https://homescree.net/favicon.ico",
     siteName: "Matthew Guo",
     locale: "en-US",
     type: "website",
