@@ -25,10 +25,11 @@ export async function saveGuestbookEntry(
   email: string,
   body: string,
   created_by: string,
+  updated_at: string,
 ) {
   await queryBuilder
     .insertInto("guestbook")
-    .values({ email, body, created_by })
+    .values({ email, body, created_by, updated_at })
     .execute();
 
   revalidatePath("/guestbook");

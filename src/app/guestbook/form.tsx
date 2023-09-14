@@ -27,6 +27,7 @@ export default function Form(props: { user: any }) {
             props.user.email!,
             message,
             props.user.name!,
+            Date.UTC.toString()
           );
         formRef.current?.reset();
       }}
