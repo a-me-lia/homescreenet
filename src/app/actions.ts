@@ -20,3 +20,16 @@ export async function increment(slug: string) {
     .execute();
   return;
 }
+
+export async function saveGuestbookEntry(
+  email: string,
+  body: string,
+  created_by: string,
+) {
+  await queryBuilder
+    .insertInto("guestbook")
+    .values({ email, body, created_by })
+    .execute();
+
+  revalidatePath("/guestbook");
+}
