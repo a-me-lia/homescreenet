@@ -3,10 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import Link from "next/link";
 
-
 export default function Home() {
-
-
   const [scroll, setScroll] = useState(0);
 
   const [elements, setElements] = useState<number[]>([0, 1, 2, 3, 4]);

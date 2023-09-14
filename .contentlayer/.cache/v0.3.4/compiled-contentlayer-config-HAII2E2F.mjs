@@ -51,12 +51,9 @@ var Blog = defineDocumentType(() => ({
   },
   computedFields
 }));
-var contentlayer_config_default = makeSource({
-  contentDirPath: "content",
-  documentTypes: [Blog]
-});
+var contentlayer_config_default = makeSource({ contentDirPath: "content", documentTypes: [Blog] });
 export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-6REZXIRI.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-HAII2E2F.mjs.map

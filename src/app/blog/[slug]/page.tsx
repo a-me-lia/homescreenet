@@ -105,7 +105,7 @@ export default async function Blog({ params }: { params: any }) {
           {formatDate(post.publishedAt)}
         </p>
         <div className="flex flex-row">
-          <ViewCounter allViews={allViews} slug={post.slug} trackView/>
+          <ViewCounter allViews={allViews} slug={post.slug} trackView />
           <Tag tags={post.tags}></Tag>
         </div>
       </div>

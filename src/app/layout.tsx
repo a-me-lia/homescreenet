@@ -4,7 +4,7 @@ import { IBM_Plex_Sans, Inter } from "next/font/google";
 import Navbar from "./components/navbar";
 import LayoutWrapper from "./layoutWrapper";
 
-import {GET, POST} from "./api/auth/[...nextAuth]/route"
+import { GET, POST } from "./api/auth/[...nextAuth]/route";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -38,11 +38,10 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
-  children
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
@@ -53,8 +52,8 @@ export default function RootLayout({
         className={`${inter.variable} font-sans  ${plexMono.variable} font-ibm `}
       >
         <LayoutWrapper>
-        <Navbar></Navbar>
-        {children}
+          <Navbar></Navbar>
+          {children}
         </LayoutWrapper>
       </body>
     </html>

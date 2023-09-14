@@ -1,30 +1,23 @@
-"use client"
-import { SignIn, SignOut } from './buttons';
-import Form from './form';
-import { useSession, signIn, signOut } from "next-auth/react"
+"use client";
+import { SignIn, SignOut } from "./buttons";
+import Form from "./form";
+import { useSession, signIn, signOut } from "next-auth/react";
 
+export default function Client() {
+  const { data: session } = useSession();
+  let user = session?.user;
 
-
-
-
-
-export default function Client(){
-
-    const {data:session} = useSession()
-    let user = session?.user
-
-    return(
+  return (
+    <>
+      {`${typeof user != "undefined" ? "yes" : "no"}`}
+      {user ? (
         <>
-        {`${typeof user != 'undefined' ? 'yes' : 'no'}`}
-        {user ? (
-          <>
-            <Form user={user}/>
-            <SignOut />
-
-          </>
-        ) : (
-          <SignIn /> 
-        )}
+          <Form user={user} />
+          <SignOut />
         </>
-    )
+      ) : (
+        <SignIn />
+      )}
+    </>
+  );
 }

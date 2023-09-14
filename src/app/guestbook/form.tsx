@@ -1,36 +1,35 @@
-'use client';
-import { use, useContext, useRef, useState } from 'react';
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
+"use client";
+import { use, useContext, useRef, useState } from "react";
+import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
 import { queryBuilder } from "../../lib/planetscale";
 
 import { revalidatePath } from "next/cache";
 
-
-
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Guestbook | Matthew Guo',
-  description: 'ya gotta prove you were here',
+  title: "Guestbook | Matthew Guo",
+  description: "ya gotta prove you were here",
 };
 
+export async function saveGuestbookEntry(
+  email: string,
+  body: string,
+  created_by: string,
+) {
+  await queryBuilder
+    .insertInto("guestbook")
+    .values({ email, body, created_by })
+    .execute();
 
+  revalidatePath("/guestbook");
+}
 
-export async function saveGuestbookEntry(email:string, body: string, created_by:string) {
-    await queryBuilder
-      .insertInto('guestbook')
-      .values({ email, body, created_by })
-      .execute();
-  
-    revalidatePath('/guestbook');
-  }
-
-export default function Form(props:{user:any}) {
-
+export default function Form(props: { user: any }) {
   const formRef = useRef<HTMLFormElement>(null);
   const { pending } = useFormStatus();
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState("");
 
   return (
     <form
@@ -38,7 +37,12 @@ export default function Form(props:{user:any}) {
       className="relative max-w-[500px]"
       ref={formRef}
       action={async (formData) => {
-        if(props.user)await saveGuestbookEntry(props.user.email!, message, props.user.name!);
+        if (props.user)
+          await saveGuestbookEntry(
+            props.user.email!,
+            message,
+            props.user.name!,
+          );
         formRef.current?.reset();
       }}
     >

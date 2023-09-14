@@ -1,17 +1,15 @@
-"use client"
+"use client";
 
 import { Ultra } from "next/font/google";
 import { useEffect } from "react";
 
 const bgColors = [
-  'bg-red-500', 
-  'bg-green-500',
-  'bg-blue-500',
-  'bg-purple-500',
-  'bg-slate-200'
-]
-
-
+  "bg-red-500",
+  "bg-green-500",
+  "bg-blue-500",
+  "bg-purple-500",
+  "bg-slate-200",
+];
 
 const navItems = {
   "/": {
@@ -32,26 +30,29 @@ const navItems = {
   },
 };
 
-
-
 export default function Tag({ tags }: { tags: string }) {
-  let arr = tags.split(',')
-  let indexes:number[] = []
+  let arr = tags.split(",");
+  let indexes: number[] = [];
 
-  for( let i = 0; i <arr.length; i++){
-    indexes[i] = (arr[i].charCodeAt(0) + arr[i].charCodeAt(arr[i].length-1)) % bgColors.length-1
+  for (let i = 0; i < arr.length; i++) {
+    indexes[i] =
+      ((arr[i].charCodeAt(0) + arr[i].charCodeAt(arr[i].length - 1)) %
+        bgColors.length) -
+      1;
   }
 
-    return(
-      <ul className="ml-2 flex flex-row space-x-1">
-        {arr.map((entry, index) => (
-              <li
-                className={`${bgColors[indexes[index]]} rounded-md px-2 text-[14px] h-min`}
-                key={index}
-              >
-                {entry}
-              </li>
-            ))}
-      </ul>
-    )
+  return (
+    <ul className="ml-2 flex flex-row space-x-1">
+      {arr.map((entry, index) => (
+        <li
+          className={`${
+            bgColors[indexes[index]]
+          } rounded-md px-2 text-[14px] h-min`}
+          key={index}
+        >
+          {entry}
+        </li>
+      ))}
+    </ul>
+  );
 }

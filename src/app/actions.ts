@@ -4,7 +4,6 @@ import { queryBuilder } from "../lib/planetscale";
 
 import { revalidatePath } from "next/cache";
 
-
 export async function increment(slug: string) {
   const data = await queryBuilder
     .selectFrom("views")
@@ -21,7 +20,6 @@ export async function increment(slug: string) {
     .execute();
   return;
 }
-
 
 //heheh
 // sorry i owe you ummmmmmmm <you decide what  i owe you/>
