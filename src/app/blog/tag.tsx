@@ -8,13 +8,7 @@ const bgColors = [
   'slate-200'
 ]
 
-const order = [
-  'electronics', 
-  'dev',
-  'music',
-  'life',
-  'other'
-]
+
 
 const navItems = {
   "/": {
@@ -37,6 +31,12 @@ const navItems = {
 
 export default function Tag({ tags }: { tags: string }) {
   let arr = tags.split(',')
+  let indexes = []
+
+  for( let i = 0; i <arr.length; i++){
+    indexes[i] = (arr[i].charCodeAt(0) + arr[i].charCodeAt(arr[i].length-1)) % bgColors.length-1
+
+  }
 
   // arr.map((i)=>{
   //   return()
@@ -47,13 +47,7 @@ export default function Tag({ tags }: { tags: string }) {
 
     return(
       <ul>
-      {Object.entries(arr).map((key) => {
 
-        return (
-<li className={`${bgColors[order.indexOf(key)]}`}>{key}</li>
-        );
-      })}
       </ul>
-
-    
+    )
 }
