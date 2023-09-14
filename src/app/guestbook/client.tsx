@@ -9,7 +9,7 @@ export default function Client() {
 
   return (
     <>
-      {`${typeof user != "undefined" ? "yes" : "no"}`}
+      {/* {`${typeof user != "undefined" ? "yes" : "no"}`} */}
       {user ? (
         <>
           <Form user={user} />
