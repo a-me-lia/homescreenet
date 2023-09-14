@@ -36,6 +36,10 @@ const CustomH1 = (props: any) => {
   return <h1 className="text-2xl font-bold mb-4">{props.children}</h1>;
 };
 
+const CustomH2 = (props: any) => {
+  return <h2 className="text-lg font-bold mb-4">{props.children}</h2>;
+};
+
 function ImageWithCaption(props: any) {
   return (
     <>
@@ -55,6 +59,7 @@ const components = {
   a: CustomLink,
   p: CustomP,
   h1: CustomH1,
+  h2: CustomH2,
   Image: ImageWithCaption,
 };
 
