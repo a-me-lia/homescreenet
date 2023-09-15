@@ -2,7 +2,7 @@ import { allBlogs } from "@/../.contentlayer/generated";
 
 export default async function sitemap() {
   const blogs = allBlogs.map((post) => ({
-    url: `https://homscree.net/blog/${post.slug}`,
+    url: `https://homescree.net/blog/${post.slug}`,
     lastModified: post.publishedAt,
   }));
 
