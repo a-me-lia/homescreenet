@@ -39,7 +39,8 @@ export default function Tag({ tags }: { tags: string }) {
   }
 
   return (
-    <ul className="ml-2 flex flex-row space-x-1">
+    <ul className="ml-2 flex flex-row space-x-1"
+    onClick={(e)=>{e.preventDefault()}}>
       {arr.map((entry, index) => (
         <li
           className={`${
