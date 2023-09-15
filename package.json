@@ -18,6 +18,8 @@
     "encoding": "^0.1.13",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "firebase": "^10.4.0",
+    "fs": "^0.0.1-security",
     "kysely": "^0.26.3",
     "kysely-planetscale": "^1.4.0",
     "next": "13.4.19",
