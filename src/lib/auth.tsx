@@ -23,9 +23,5 @@ export const {
       clientId: process.env.GITHUB_OAUTH_CLIENT_KEY as string,
       clientSecret: process.env.GITHUB_OAUTH_CLIENT_SECRET as string,
     }),
-    Google({
-      clientId: process.env.GOOGLE_OAUTH_CLIENT_KEY as string,
-      clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET as string,
-    }),
   ],
 });
