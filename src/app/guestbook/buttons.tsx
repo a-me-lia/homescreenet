@@ -1,6 +1,5 @@
 "use client";
 import { signIn, signOut } from "next-auth/react";
-import { signInGoogle } from "./page"
 
 function GitHubIcon() {
   return (
@@ -37,7 +36,7 @@ export function SignOut() {
   );
 }
 
-export function SignIn() {
+export function SignIn({gFunc}:{gFunc:Function}) {
   return (
     <div className="flex flex-row space-x-2">
     <button
@@ -49,12 +48,12 @@ export function SignIn() {
 
       </div>
 
-      <div className="ml-3 text-black">Sign in with Google or Github</div>
+      <div className="ml-3 text-black">Sign in with Github</div>
     </button>
 
 <button
 className="px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8"
-onClick={()=>signInGoogle()}
+onClick={()=>gFunc()}
 >
 <div className="flex flex-row space-x-2">
 <div className="relative w-6 h-6">
@@ -84,7 +83,7 @@ onClick={()=>signInGoogle()}
 
 </div>
 
-<div className="ml-3 text-black">Sign in with Google or Github</div>
+<div className="ml-3 text-black">Sign in with Google</div>
 </button>
 </div>
 

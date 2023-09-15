@@ -2,9 +2,6 @@
 import { queryBuilder } from "../../lib/planetscale";
 import Client from "./client";
 
-import { app } from "@/lib/firebase";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, User } from 'firebase/auth'
-
 
 async function getGuestbook() {
   const data = await queryBuilder
@@ -17,29 +14,6 @@ async function getGuestbook() {
   return data.reverse();
 }
 
-let user:User | undefined, credential, token;
-const gAuth = getAuth(app);
-
-const provider = new GoogleAuthProvider()
-provider.setCustomParameters({ prompt: "select_account" });
-provider.addScope('profile');
-provider.addScope('email');
-
-export async function signInGoogle() {
-  "use server";
-
-
-  await signInWithRedirect(gAuth, provider);
-
-  const result = await getRedirectResult(gAuth);
-
-
-  if (result) {
-     user = result.user;
-     credential = GoogleAuthProvider.credentialFromResult(result);
-     token = credential?.accessToken;
-  }
-}
 
 
 export default async function Page() {
