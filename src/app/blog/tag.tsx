@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 const bgColors = [
   "bg-red-500",
@@ -8,24 +9,6 @@ const bgColors = [
   "bg-slate-200",
 ];
 
-const navItems = {
-  "/": {
-    name: "home",
-    id: "0",
-  },
-  "/blog": {
-    name: "blog",
-    id: "1",
-  },
-  "/guestbook": {
-    name: "guestbook",
-    id: "2",
-  },
-  "/contact": {
-    name: "contact",
-    id: "3",
-  },
-};
 
 export default function Tag({ tags }: { tags: string }) {
   let arr = tags.split(",");
@@ -45,8 +28,10 @@ export default function Tag({ tags }: { tags: string }) {
         <li
           className={`${
             bgColors[indexes[index]]
-          } rounded-md px-2 text-[14px] h-min bg-opacity-30`}
+          } rounded-md px-2 text-[14px] h-min text-black text-opacity-100 bg-opacity-30 hover:bg-opacity-100 transition-all duration-300 `}
           key={index}
+          id={index.toString()}
+          onClick={()=>{}}
         >
           {entry}
         </li>
