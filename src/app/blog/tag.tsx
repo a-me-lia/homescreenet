@@ -28,7 +28,7 @@ export default function Tag({ tags }: { tags: string }) {
         <li
           className={`${
             bgColors[indexes[index]]
-          } rounded-md px-2 text-[14px] h-min text-black text-opacity-100 bg-opacity-30 hover:bg-opacity-100 transition-all duration-300 `}
+          } rounded-md px-2 text-[14px] h-min text-black text-opacity-100 hover:text-white bg-opacity-30 hover:bg-opacity-100 transition-all duration-300 `}
           key={index}
           id={index.toString()}
           onClick={()=>{}}
