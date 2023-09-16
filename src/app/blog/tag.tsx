@@ -19,7 +19,6 @@ export default function Tag({ tags, setActive }: { tags: string, setActive?:Func
       ((arr[i].charCodeAt(0) + arr[i].charCodeAt(arr[i].length - 1)) %
         bgColors.length) -
       1;
-
   }
 
   return (
