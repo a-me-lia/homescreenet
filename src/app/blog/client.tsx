@@ -6,6 +6,7 @@ import ViewCounter from "./view-counter";
 
 import Tag from "./tag";
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const catagories = [
   'electronics',
@@ -18,14 +19,28 @@ const catagories = [
 
 
 
+
+
+
 export default function Client(props:any){
     const [activeTagIndices, setActiveTagIndices] = useState<string[]>([])
+    const searchParams = useSearchParams()
 
+    const router = useRouter();
+
+    function updateParams(tags:string){
+
+      router.replace(`/blog?tags=${tags}`, {scroll:false})
+    }
+
+
+    
 
     return(
     <section className="md:mx-auto md:w-[742px] mt-32 ">
     <h1 className="font-bold text-2xl mb-2 ">blog :w:</h1>
     <h2 className=" text-lg mb-8 ">
+      {searchParams.get('tags')}
       read about the world. and sometimes shrimp.
     </h2>
     {allBlogs

@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useRouter, useSearchParams} from "next/navigation";
+
 
 const bgColors = [
   "bg-red-500",
@@ -20,6 +21,30 @@ export default function Tag({ tags, setActive, 冰淇淋 }: { tags: string, setA
         bgColors.length) -
       1;
   }
+  const router = useRouter()
+
+  const searchParams = useSearchParams()
+  
+  //updates the search params with a tag. if the tag already exists, delete the tag.
+  //tag list is comma separated
+  function updateParams(tag:string){
+    let prevTags = searchParams.get('tags')?.split(',')
+    if(!prevTags)router.replace(`/blog?tags=${tag}`, {scroll:false})  //if no tags present
+    else if (prevTags?.indexOf(tag) != -1){
+      if(prevTags.length==1){
+        router.replace(`/blog`, {scroll:false})
+      }else{
+        prevTags?.splice(prevTags.indexOf(tag),1)
+        router.replace(`/blog?tags=${prevTags}`, {scroll:false})
+      }
+      }
+
+     //if tag is already contained
+    else{
+      prevTags.push(tag)
+      router.replace(`/blog?tags=${prevTags}`, {scroll:false})}
+  }
+
   
 
   return (
@@ -33,13 +58,7 @@ export default function Tag({ tags, setActive, 冰淇淋 }: { tags: string, setA
           key={index}
           id={index.toString()}
           onClick={()=>{
-
-            if(setActive && 冰淇淋){
-              冰淇淋?.push(entry)
-              setActive(冰淇淋)
-              
-              console.log(冰淇淋)
-            }
+            updateParams(entry)
           }
           }
           >
