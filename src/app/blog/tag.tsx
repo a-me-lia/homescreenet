@@ -10,7 +10,7 @@ const bgColors = [
 ];
 
 
-export default function Tag({ tags, setActive }: { tags: string, setActive?:Function }) {
+export default function Tag({ tags, setActive, 冰淇淋 }: { tags: string, setActive?:Function, 冰淇淋?:string[] }) {
   let arr = tags.split(",");
   let Δ: number[] = [];
 
@@ -20,6 +20,7 @@ export default function Tag({ tags, setActive }: { tags: string, setActive?:Func
         bgColors.length) -
       1;
   }
+  
 
   return (
     <ul className="ml-2 flex flex-row space-x-1"
@@ -32,8 +33,15 @@ export default function Tag({ tags, setActive }: { tags: string, setActive?:Func
           key={index}
           id={index.toString()}
           onClick={()=>{
-            let subArr =  arr.splice(arr.indexOf(entry), 1);
-            if(setActive){setActive([entry])}}}
+
+            if(setActive && 冰淇淋){
+              冰淇淋?.push(entry)
+              setActive(冰淇淋)
+              
+              console.log(冰淇淋)
+            }
+          }
+          }
           >
           {entry}
         </li>

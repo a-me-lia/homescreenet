@@ -5,7 +5,7 @@ import ViewCounter from "./view-counter";
 
 
 import Tag from "./tag";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const catagories = [
   'electronics',
@@ -16,8 +16,11 @@ const catagories = [
   'other',
 ]
 
+
+
 export default function Client(props:any){
-    const [activeTagIndices, setActiveTagIndices] = useState<string[]>([''])
+    const [activeTagIndices, setActiveTagIndices] = useState<string[]>([])
+
 
     return(
     <section className="md:mx-auto md:w-[742px] mt-32 ">
@@ -34,7 +37,7 @@ export default function Client(props:any){
       }).filter((post)=>{
         let arr = String(post.tags).split(',')
         const filteredArray = activeTagIndices.filter(value => arr.includes(value));
-      return(activeTagIndices[0] != '' ? filteredArray[0] : true)
+      return(activeTagIndices[0] ? filteredArray.length > 0 : true)
     })
       .map((post) => (
         <Link
@@ -54,7 +57,7 @@ export default function Client(props:any){
                 slug={post.slug}
                 trackView={false}
               />
-              <Tag tags={post.tags} setActive={setActiveTagIndices}></Tag>
+              <Tag tags={post.tags} setActive={setActiveTagIndices} 冰淇淋={activeTagIndices}></Tag>
             </div>
           </div>
         </Link>
