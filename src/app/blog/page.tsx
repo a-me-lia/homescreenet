@@ -8,14 +8,6 @@ export const metadata: Metadata = {
   description: "Bing Chilling",
 };
 
-const catagories = [
-  'electronics',
-  'dev',
-  'shrimp',
-  'music',
-  'life',
-  'other',
-]
 
 export default async function BlogPage() {
   const allViews = await getViewsCount();

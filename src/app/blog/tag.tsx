@@ -25,14 +25,16 @@ export default function Tag({ tags, setActive }: { tags: string, setActive?:Func
     <ul className="ml-2 flex flex-row space-x-1"
     onClick={(e)=>{e.preventDefault()}}>
       {arr.map((entry, index) => (
-        <li
+          <li
           className={`${
             Δ[index] != -1  ? bgColors[Δ[index]] : 'bg-gray-400'
           } rounded-md px-2 text-[14px] h-min  text-black text-opacity-100 hover:text-white bg-opacity-30 hover:bg-opacity-100 transition-all duration-300 `}
           key={index}
           id={index.toString()}
-          onClick={()=>{}}
-        >
+          onClick={()=>{
+            let subArr =  arr.splice(arr.indexOf(entry), 1);
+            if(setActive){setActive([entry])}}}
+          >
           {entry}
         </li>
       ))}

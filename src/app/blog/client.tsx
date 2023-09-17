@@ -7,6 +7,14 @@ import ViewCounter from "./view-counter";
 import Tag from "./tag";
 import { useState } from "react";
 
+const catagories = [
+  'electronics',
+  'dev',
+  'shrimp',
+  'music',
+  'life',
+  'other',
+]
 
 export default function Client(props:any){
     const [activeTagIndices, setActiveTagIndices] = useState<string[]>([''])
