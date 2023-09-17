@@ -3,8 +3,9 @@ import Link from "next/link";
 import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
 
-import Tag from "./tag";
+import Tag from "./tag"
 import { useRouter, useSearchParams } from "next/navigation";
+
 
 
 export default function Client(props: any) {
@@ -13,17 +14,19 @@ export default function Client(props: any) {
 
   const router = useRouter();
 
-  function updateParams(tags: string) {
-    router.replace(`/blog?tags=${tags}`, { scroll: false });
+  function removeParam(){
+
   }
+
+
 
   return (
     <section className="md:mx-auto md:w-[742px] mt-32 ">
       <h1 className="font-bold text-2xl mb-2 ">blog :w:</h1>
       <h2 className=" text-lg mb-8 ">
-        {searchParams.get("tags")}
         read about the world. and sometimes shrimp.
       </h2>
+      
       {allBlogs
         .sort((a, b) => {
           if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
@@ -32,7 +35,17 @@ export default function Client(props: any) {
           return 1;
         })
         .filter((post) => {
-         return true;
+         let activeTags = searchParams.get('tags')?.split(',')
+         let postTags = post.tags.split(',')
+         let postHasActive = true
+         if(activeTags){
+          postHasActive = false
+          for(let i = 0; i <postTags.length; i++){
+            if(activeTags.indexOf(postTags[i])!= -1){postHasActive=true}
+          }
+
+         }
+         return postHasActive;
         })
         .map((post) => (
           <Link
