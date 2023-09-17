@@ -11,8 +11,6 @@ const bgColors = [
 
 export default function Tag({
   tags,
-  setActive,
-  冰淇淋,
 }: {
   tags: string;
   setActive?: Function;

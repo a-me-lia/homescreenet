@@ -4,13 +4,11 @@ import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
 
 import Tag from "./tag";
-import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const catagories = ["electronics", "dev", "shrimp", "music", "life", "other"];
 
 export default function Client(props: any) {
-  const [activeTagIndices, setActiveTagIndices] = useState<string[]>([]);
+
   const searchParams = useSearchParams();
 
   const router = useRouter();
@@ -34,11 +32,7 @@ export default function Client(props: any) {
           return 1;
         })
         .filter((post) => {
-          let arr = String(post.tags).split(",");
-          const filteredArray = activeTagIndices.filter((value) =>
-            arr.includes(value),
-          );
-          return activeTagIndices[0] ? filteredArray.length > 0 : true;
+         return true;
         })
         .map((post) => (
           <Link
@@ -60,8 +54,6 @@ export default function Client(props: any) {
                 />
                 <Tag
                   tags={post.tags}
-                  setActive={setActiveTagIndices}
-                  冰淇淋={activeTagIndices}
                 ></Tag>
               </div>
             </div>
