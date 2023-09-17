@@ -2,10 +2,10 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*',
+        userAgent: "*",
       },
     ],
-    sitemap: 'https://homescree.net/sitemap.xml',
-    host: 'https://homescree.net.io',
+    sitemap: "https://homescree.net/sitemap.xml",
+    host: "https://homescree.net.io",
   };
 }

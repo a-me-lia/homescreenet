@@ -8,14 +8,13 @@ export const metadata: Metadata = {
   description: "Bing Chilling",
 };
 
-
 export default async function BlogPage() {
   const allViews = await getViewsCount();
-  let bing = new URLSearchParams()
+  let bing = new URLSearchParams();
 
   return (
     <>
-    <Client allViews={allViews} ></Client>
+      <Client allViews={allViews}></Client>
     </>
   );
 }

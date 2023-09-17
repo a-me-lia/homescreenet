@@ -2,7 +2,6 @@
 import { queryBuilder } from "../../lib/planetscale";
 import Client from "./client";
 
-
 async function getGuestbook() {
   const data = await queryBuilder
     .selectFrom("guestbook")
@@ -13,8 +12,6 @@ async function getGuestbook() {
 
   return data.reverse();
 }
-
-
 
 export default async function Page() {
   let entries;
