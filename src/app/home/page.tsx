@@ -1,9 +1,13 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
+  const router = useRouter()
+  router.replace('/home')
+
   const [scroll, setScroll] = useState(0);
 
   const [elements, setElements] = useState<number[]>([0, 1, 2, 3, 4]);
@@ -35,8 +39,8 @@ export default function Home() {
           id="home"
         >
           <ul className="flex flex-col">
-          <li><Link href="/about">About me</Link></li>
-          <li><Link href="/resume">Resume</Link></li>
+          <li><Link href="/home/about">About me</Link></li>
+          <li><Link href="/home/resume">Resume</Link></li>
           </ul>
 
         </div>

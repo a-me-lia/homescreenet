@@ -81,7 +81,7 @@ export default function Navbar() {
 
 
   path = path.slice(1)
-  if(path.includes('about')|| path.includes('resume')){path = '/' + path}
+
   let pathitems = path.split('/')
   let level = pathitems.length
   console.log(pathitems)
