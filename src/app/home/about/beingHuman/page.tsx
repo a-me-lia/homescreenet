@@ -318,36 +318,7 @@ export default function Page() {
 
         </div>
 
-        <div className="space-y-4">
-          <div className=" transition-opacity duration-1000 fancy font-bold pb-4">
-            <p>
-              Do you have any expertise, experience, or interest in artwork
-              (that includes painting, photography, sculpture, and any other art
-              form you might think of)? Describe what this experience is.
-            </p>
-          </div>
 
-          <div className="transition-opacity duration-1000 fancy">
-            <p>
-              I play piano for competitions, and actually because I want to
-              play. I spend around two hours a day on practice, and I can play
-              RCM performance diploma level pieces such as Chopin’s Ballade No.
-              1and his most virtuosic etude op. 25 no 11.
-            </p>
-          </div>
-
-          <div className="transition-opacity duration-1000 fancy">
-            <p>
-              Recently, I have been working on a highly technically demanding
-              arrangement of the soundtrack of Suzume no Tojimari, and hope to
-              perform it in the school’s talent show. Practice is usually no
-              fun, between the frustration of not being able to ever play
-              leggerissimo and repetitive technical exercises, I hate practice.
-              But I continue doing so because I pursue the stage, I want to
-              reach peoples’ hearts and be remembered for how I made them feel.
-            </p>
-          </div>
-        </div>
       </div>
     </main>
   );
