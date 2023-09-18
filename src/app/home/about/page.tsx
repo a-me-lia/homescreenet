@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { comma } from "postcss/lib/list";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Page() {

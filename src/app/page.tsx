@@ -1,12 +1,7 @@
-import Home from "./home/page";
-
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Homescree.net | Matthew Guo",
-  description: "Bing Chilling",
-};
+"use client"
+import { useRouter } from "next/navigation"
 
 export default function Page() {
-  return <Home></Home>;
+  const router = useRouter()
+  return(router.replace('/home'))
 }
