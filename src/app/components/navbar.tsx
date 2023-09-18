@@ -24,6 +24,11 @@ const navItems = {
   },
 };
 
+const rootlevel = [
+  '','blog/', 'guestbook/','about/'
+]
+
+
 export default function Navbar() {
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog")) {
@@ -32,15 +37,14 @@ export default function Navbar() {
   if (pathname.includes("/about")) {
     pathname = "/";
   }
-
-  let newPathname = usePathname();
-  let ending = newPathname.slice(newPathname.indexOf("/", 1));
-  if (ending.length == 1) ending = "";
-  ending = ending.substring(1);
+  if (pathname.includes("/resume")) {
+    pathname = "/";
+  }
+  if (pathname.includes("/home")) {
+    pathname = "/";
+  }
 
   const [selectedTab, setSelectedTab] = useState(0);
-  const [barWidth, setBarWidth] = useState<number>(0);
-  const [barTranslate, setBarTranslate] = useState<number>(0);
   const [width, setWidth] = useState(0);
 
   const [tabs, setTabs] = useState([false, false, false, false]);
@@ -54,6 +58,7 @@ export default function Navbar() {
 
 
 
+
   useEffect(() => {
     let toTab = "0";
 
@@ -64,8 +69,24 @@ export default function Navbar() {
       });
     }
 
-    setSelectedTab(Number(toTab));
+
+
+
+
+
   }, [pathname, selectedTab, tabs, width]);
+
+
+  let path = usePathname()
+
+
+  path = path.slice(1)
+  if(path.includes('about')|| path.includes('resume')){path = '/' + path}
+  let pathitems = path.split('/')
+  let level = pathitems.length
+  console.log(pathitems)
+
+
 
   return (
     <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
@@ -76,9 +97,9 @@ export default function Navbar() {
             <div className="flex flex-row  bg-white items-baseline justify-between overflow-x-hidden ">
               <div className="flex flex-col font-mono text-[16px] w-full bg-white">
                 <div className="flex flex-row items-baseline -mr-8">
-                  <h1 className="md:block hidden" id="homescree.net">
-                    Homescree.net&nbsp;/&nbsp;
-                  </h1>
+                  <Link href={'/'} className="md:block hidden" id="homescree.net">
+                    Homescree.net&thinsp;/&thinsp;
+                  </Link>
 
                   {Object.entries(navItems).map(([path, { name, id }]) => {
                     const isActive = path === pathname;
@@ -98,7 +119,12 @@ export default function Navbar() {
               </div>
             </div>
             <h2 className="font-mono md:block hidden">
-              {`${ending != "" ? "/" : ""}`}&nbsp;{`${ending}`}
+                  {level >= 2 && (
+                      <Link href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}`}>/ {pathitems[1]}</Link>
+                  )}
+                  {level == 3 && (
+                      <Link href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}/${pathitems[2]}`}> / {pathitems[2]}</Link>
+                  )}
             </h2>
           </div>
 

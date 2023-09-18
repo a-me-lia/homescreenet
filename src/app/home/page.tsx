@@ -34,7 +34,11 @@ export default function Home() {
           }}
           id="home"
         >
-          <Link href="/home/about">About me</Link>
+          <ul className="flex flex-col">
+          <li><Link href="/about">About me</Link></li>
+          <li><Link href="/resume">Resume</Link></li>
+          </ul>
+
         </div>
       </div>
     </main>
