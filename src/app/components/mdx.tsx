@@ -52,16 +52,16 @@ function ImageWithCaption(props: any) {
   return (
     <>
       {" "}
-      <div className="relative mt-6 w-full h-96">
+      <div className="relative mt-6 w-full md:h-96 h-32">
       <Image
         src={props.src}
         alt={props.alt}
         fill
         {...props}
-        className="object-contain rounded-lg"
+        className="object-cover rounded-lg border-[0.5px]"
       ></Image>
       </div>
-      <p className="text-[14px] opacity-60 mt-2  mb-8">{props.caption}</p>
+      <p className="text-[14px] opacity-60 mt-2 mb-8">{props.caption}</p>
     </>
   );
 }
