@@ -96,7 +96,7 @@ export default function Navbar() {
           <div className="flex flex-row ">
             <div className="flex flex-row  bg-white items-baseline justify-between overflow-x-hidden ">
               <div className="flex flex-col font-mono text-[16px] w-full bg-white">
-                <div className="flex flex-row items-baseline -mr-8">
+                <div className="flex flex-row items-baseline -mr-6">
                   <Link href={'/'} className="md:block hidden" id="homescree.net">
                     Homescree.net&thinsp;/&thinsp;
                   </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
                       <Link
                         key={path}
                         href={path}
-                        className={`pr-10 ${
+                        className={`pr-8 ${
                           isActive ? "text-neutral-900" : "text-neutral-300"
                         } transition-colors duration-1000`}
                       >
