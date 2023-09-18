@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { comma } from "postcss/lib/list";
 import { use, useEffect, useState } from "react";
-import Code from "../components/code";
 import Link from "next/link";
 
 export default function Page() {
@@ -59,7 +58,7 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
-      <div className="md:mx-auto md:w-[742px] mt-32 mb-24 text-[16px] space-y-12 font-mono ">
+      <div className="md:mx-auto mx-4 md:w-[742px] mt-32 mb-24 text-[16px] space-y-12 font-mono ">
         <h1 className="text-[#ff0000] text-[32px]">
           Caroline is allergic to shrimp
         </h1>

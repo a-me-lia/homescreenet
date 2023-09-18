@@ -58,7 +58,7 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
-      <div className="md:mx-auto md:w-[742px] mt-32 mb-32 text-[16px] space-y-16 font-mono ">
+      <div className="md:mx-auto mx-4 md:w-[742px] mt-32 mb-32 text-[16px] space-y-16  ">
         <div>
           <h1 className=" text-[32px]">Being Human</h1>
           <div className="flex flex-row justify-between align-baseline">
@@ -69,7 +69,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative w-full h-[420px]">
+        <div className="relative w-full h-[256px] md:h-[420px]">
           <Image src="/china.jpeg" alt="" fill></Image>
         </div>
 
