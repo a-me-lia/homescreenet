@@ -27,7 +27,7 @@ export default function Client(props: any) {
 
 
   return (
-    <section className="md:mx-auto md:w-[742px] mt-32 ">
+    <section className="md:mx-auto md:w-[742px] mt-32 mx-4 ">
       <h1 className="font-bold text-2xl mb-2 ">blog :w:</h1>
       <h2 className=" text-lg mb-8 ">
         read about the world. and sometimes shrimp.
@@ -64,13 +64,14 @@ export default function Client(props: any) {
                 {post.title}
               </p>
 
-              <div className="flex flex-row items-baseline">
+              <div className="flex flex-row items-baseline ">
                 {" "}
                 <ViewCounter
                   allViews={props.allViews}
                   slug={post.slug}
                   trackView={false}
                 />
+
                 <Tag
                   tags={post.tags}
                 ></Tag>

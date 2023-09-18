@@ -91,14 +91,14 @@ export default async function Blog({ params }: { params: any }) {
   const [allViews] = await Promise.all([getViewsCount()]);
 
   return (
-    <section className="md:mx-auto md:w-[742px] mt-32">
+    <section className="md:mx-auto md:w-[742px] mt-32 mx-4">
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>
       <h1 className="font-bold text-2xl max-w-[650px]">
         <Balancer>{post.title}</Balancer>
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+      <div className="flex justify-between space-y-2 md:space-y-0 md:items-center mt-2 mb-8 text-sm max-w-[650px] flex-col md:flex-row">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.publishedAt)}
         </p>
