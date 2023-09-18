@@ -40,6 +40,14 @@ const CustomH2 = (props: any) => {
   return <h2 className="text-lg font-bold mb-4">{props.children}</h2>;
 };
 
+const CustomUl = (props: any) => {
+  return <ul className="mb-4">{props.children}</ul>;
+};
+
+const CustomLi = (props: any) => {
+  return <li className="flex flex-row items-top space-x-4"><div className="w-2"><div className="h-2 w-2 mt-2 bg-gray-300 rounded-sm"></div></div><p>{props.children}</p></li>;
+};
+
 function ImageWithCaption(props: any) {
   return (
     <>
@@ -60,6 +68,8 @@ const components = {
   p: CustomP,
   h1: CustomH1,
   h2: CustomH2,
+  li: CustomLi,
+  ul: CustomUl,
   Image: ImageWithCaption,
 };
 
