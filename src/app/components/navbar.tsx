@@ -99,13 +99,13 @@ export default function Navbar() {
       <div className="md:mx-auto md:w-[742px]">
 
         <nav >
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-row ">
 
 
-          <div className="flex flex-row w-full bg-white items-baseline justify-between overflow-x-hidden ">
+          <div className="flex flex-row  bg-white items-baseline justify-between overflow-x-hidden ">
             <div className="flex flex-col font-mono text-[16px] w-full bg-white">
               
-              <div className="flex flex-row items-baseline">
+              <div className="flex flex-row items-baseline -mr-8">
               <h1 id='homescree.net'>Homescree.net&nbsp;/&nbsp;</h1>
                 {Object.entries(navItems).map(([path, { name, id }]) => {
                   const isActive = path === pathname;
@@ -114,7 +114,7 @@ export default function Navbar() {
                       key={path}
                       href={path}
                       className={`pr-10 ${
-                        isActive ? "text-neutral-900" : "text-neutral-400"
+                        isActive ? "text-neutral-900" : "text-neutral-300"
                       } transition-colors duration-1000`}
                     >
                       <p id={id}>{name}</p>
