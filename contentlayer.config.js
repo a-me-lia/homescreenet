@@ -4,7 +4,7 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath,
+    resolve: (doc) => doc._raw.flattenedPath.slice(doc._raw.flattenedPath.indexOf('/') + 1), 
   },
   structuredData: {
     type: "object",
@@ -30,7 +30,7 @@ const computedFields = {
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `blog/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -56,4 +56,29 @@ export const Blog = defineDocumentType(() => ({
   computedFields,
 }));
 
-export default makeSource({ contentDirPath: "content", documentTypes: [Blog] });
+export const AboutPage = defineDocumentType(() => ({
+  name: "AboutPage",
+  filePathPattern: `about.**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    publishedAt: {
+      type: "string",
+      required: true,
+    },
+    summary: {
+      type: "string",
+    },
+    image: {
+      type: "string",
+    },
+  },
+  computedFields,
+}));
+
+
+
+export default makeSource({ contentDirPath: "content", documentTypes: [Blog,AboutPage]  });
