@@ -7,6 +7,8 @@ import Tag from "./tag";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
+import { Balancer } from "react-wrap-balancer";
+
 export default function Client(props: any) {
   const searchParams = useSearchParams();
 
@@ -25,7 +27,7 @@ export default function Client(props: any) {
     <section className="md:mx-auto md:w-[742px] mt-32 mx-4 ">
       <h1 className="font-bold text-2xl mb-2 ">blog :w:</h1>
       <h2 className=" text-lg mb-8 ">
-        read about the world. and sometimes shrimp.
+        <Balancer> read about the world. and sometimes shrimp.</Balancer>
       </h2>
 
       {allBlogs
