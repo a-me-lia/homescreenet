@@ -4,7 +4,8 @@ import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
 
 import Tag from "./tag"
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 
 
@@ -12,7 +13,12 @@ export default function Client(props: any) {
 
   const searchParams = useSearchParams();
 
-  const router = useRouter();
+  const router = useRouter()
+  const href = usePathname()
+
+  useEffect((()=>{  const refreshData = () => {
+    router.replace(href);
+  }}))
 
   function removeParam(){
 
@@ -40,7 +46,7 @@ export default function Client(props: any) {
          let postHasActive = true
          if(activeTags){
           postHasActive = false
-          for(let i = 0; i <postTags.length; i++){
+          for(let i = 0; i < postTags.length; i++){
             if(activeTags.indexOf(postTags[i])!= -1){postHasActive=true}
           }
 

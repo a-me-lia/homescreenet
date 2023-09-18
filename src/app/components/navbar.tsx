@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useReducer, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 const navItems = {
@@ -31,6 +31,8 @@ export default function Navbar() {
   if (pathname.includes("/about")) {
     pathname = "/";
   }
+
+
 
   let newPathname = usePathname() 
   let ending  = newPathname.slice(newPathname.indexOf('/' , 1))
