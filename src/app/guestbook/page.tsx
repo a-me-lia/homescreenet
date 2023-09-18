@@ -29,7 +29,7 @@ export default async function Page() {
   }
 
   return (
-    <section className="min-h-screen bg-white mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative">
+    <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px] mt-32 relative">
       <h1 className="font-bold font-mono text-2xl mb-8 mt-32">guestbook :p</h1>
       <Client></Client>
       {entries?.map((entry) => (

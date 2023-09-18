@@ -36,7 +36,8 @@ export default function Tag({
     if (!prevTags)
       router.replace(`/blog?tags=${tag}`, {
         scroll: false,
-      }); //if no tags present
+      });
+    //if no tags present
     else if (prevTags?.indexOf(tag) != -1) {
       //if tag is already contained
       if (prevTags.length == 1) {

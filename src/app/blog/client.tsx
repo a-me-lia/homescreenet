@@ -3,28 +3,23 @@ import Link from "next/link";
 import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
 
-import Tag from "./tag"
+import Tag from "./tag";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-
-
 export default function Client(props: any) {
-
   const searchParams = useSearchParams();
 
-  const router = useRouter()
-  const href = usePathname()
+  const router = useRouter();
+  const href = usePathname();
 
-  useEffect((()=>{  const refreshData = () => {
-    router.replace(href);
-  }}))
+  useEffect(() => {
+    const refreshData = () => {
+      router.replace(href);
+    };
+  });
 
-  function removeParam(){
-
-  }
-
-
+  function removeParam() {}
 
   return (
     <section className="md:mx-auto md:w-[742px] mt-32 mx-4 ">
@@ -32,7 +27,7 @@ export default function Client(props: any) {
       <h2 className=" text-lg mb-8 ">
         read about the world. and sometimes shrimp.
       </h2>
-      
+
       {allBlogs
         .sort((a, b) => {
           if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
@@ -41,17 +36,18 @@ export default function Client(props: any) {
           return 1;
         })
         .filter((post) => {
-         let activeTags = searchParams.get('tags')?.split(',')
-         let postTags = post.tags.split(',')
-         let postHasActive = true
-         if(activeTags){
-          postHasActive = false
-          for(let i = 0; i < postTags.length; i++){
-            if(activeTags.indexOf(postTags[i])!= -1){postHasActive=true}
+          let activeTags = searchParams.get("tags")?.split(",");
+          let postTags = post.tags.split(",");
+          let postHasActive = true;
+          if (activeTags) {
+            postHasActive = false;
+            for (let i = 0; i < postTags.length; i++) {
+              if (activeTags.indexOf(postTags[i]) != -1) {
+                postHasActive = true;
+              }
+            }
           }
-
-         }
-         return postHasActive;
+          return postHasActive;
         })
         .map((post) => (
           <Link
@@ -71,10 +67,7 @@ export default function Client(props: any) {
                   slug={post.slug}
                   trackView={false}
                 />
-
-                <Tag
-                  tags={post.tags}
-                ></Tag>
+                <Tag tags={post.tags}></Tag>
               </div>
             </div>
           </Link>

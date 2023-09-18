@@ -45,7 +45,14 @@ const CustomUl = (props: any) => {
 };
 
 const CustomLi = (props: any) => {
-  return <li className="flex flex-row items-top space-x-4"><div className="w-2"><div className="h-2 w-2 mt-2 bg-gray-300 rounded-sm"></div></div><p>{props.children}</p></li>;
+  return (
+    <li className="flex flex-row items-top space-x-4">
+      <div className="w-2">
+        <div className="h-2 w-2 mt-2 bg-gray-300 rounded-sm"></div>
+      </div>
+      <p>{props.children}</p>
+    </li>
+  );
 };
 
 function ImageWithCaption(props: any) {
@@ -53,13 +60,13 @@ function ImageWithCaption(props: any) {
     <>
       {" "}
       <div className="relative mt-6 w-full md:h-96 h-32">
-      <Image
-        src={props.src}
-        alt={props.alt}
-        fill
-        {...props}
-        className="object-cover rounded-lg border-[0.5px]"
-      ></Image>
+        <Image
+          src={props.src}
+          alt={props.alt}
+          fill
+          {...props}
+          className="object-cover rounded-lg border-[0.5px]"
+        ></Image>
       </div>
       <p className="text-[14px] opacity-60 mt-2 mb-8">{props.caption}</p>
     </>
