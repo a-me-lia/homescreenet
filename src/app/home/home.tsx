@@ -34,7 +34,7 @@ export default function Home() {
           }}
           id="home"
         >
-          <Link href="/about">About me</Link>
+          <Link href="/home/about">About me</Link>
         </div>
       </div>
     </main>
