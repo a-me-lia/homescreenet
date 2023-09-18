@@ -58,7 +58,7 @@ function ImageWithCaption(props: any) {
         alt={props.alt}
         fill
         {...props}
-        className="object-cover rounded-lg"
+        className="object-contain rounded-lg"
       ></Image>
       </div>
       <p className="text-[14px] opacity-60 mt-2  mb-8">{props.caption}</p>

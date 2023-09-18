@@ -85,13 +85,13 @@ export default function Navbar() {
     setSelectedTab(Number(toTab));
   }, [barWidth, pathname, selectedTab, tabs]);
 
-  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  Promise
 
   return (
     <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
       {" "}
       <div className="md:mx-auto md:w-[742px]">
-        <nav>
+        <nav className="flex flex-row justify-between">
           <div className="flex flex-row w-full bg-white items-baseline justify-between overflow-x-hidden ">
             <div className="flex flex-col font-mono text-[16px] w-full bg-white">
               <div className="flex flex-row items-baseline">
@@ -121,6 +121,9 @@ export default function Navbar() {
                 }`}
               ></div>
             </div>
+          </div>
+          <div>
+
           </div>
         </nav>
       </div>
