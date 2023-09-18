@@ -32,6 +32,12 @@ export default function Navbar() {
     pathname = "/";
   }
 
+  let newPathname = usePathname() 
+  let ending  = newPathname.slice(newPathname.indexOf('/' , 1))
+  if (ending.length == 1)ending = ''
+  ending = ending.substring(1)
+  console.log(ending)
+
   const [selectedTab, setSelectedTab] = useState(0);
   const [barWidth, setBarWidth] = useState<number>(0);
   const [barTranslate, setBarTranslate] = useState<number>(0);
@@ -75,26 +81,32 @@ export default function Navbar() {
     between -= 44;
 
     setBarWidth(between);
-    if (selectedTab > Number(toTab)) setBarTranslate(before + 2);
+    if (selectedTab > Number(toTab)) setBarTranslate(before + 2 + document.getElementById('homescree.net')?.offsetWidth!);
 
     setTimeout(() => {
       setBarWidth(document.getElementById(toTab)?.offsetWidth! + 4);
-      if (true) setBarTranslate(before - 2);
+      if (true) setBarTranslate(before - 2 +  document.getElementById('homescree.net')?.offsetWidth!);
     }, 350);
 
     setSelectedTab(Number(toTab));
   }, [barWidth, pathname, selectedTab, tabs]);
 
-  Promise
+
 
   return (
     <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
       {" "}
       <div className="md:mx-auto md:w-[742px]">
-        <nav className="flex flex-row justify-between">
+
+        <nav >
+          <div className="flex flex-row justify-between">
+
+
           <div className="flex flex-row w-full bg-white items-baseline justify-between overflow-x-hidden ">
             <div className="flex flex-col font-mono text-[16px] w-full bg-white">
+              
               <div className="flex flex-row items-baseline">
+              <h1 id='homescree.net'>Homescree.net&nbsp;/&nbsp;</h1>
                 {Object.entries(navItems).map(([path, { name, id }]) => {
                   const isActive = path === pathname;
                   return (
@@ -110,7 +122,15 @@ export default function Navbar() {
                   );
                 })}
               </div>
-              <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
+
+            </div>
+          </div>
+          <div className="font-mono">
+                {`${ending != '' ? '/' : ''}`}&nbsp;{`${ending}`}
+          </div>
+          </div>
+
+          <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
               <div
                 style={{
                   width: barWidth + "px",
@@ -120,11 +140,8 @@ export default function Navbar() {
                   loaded ? "transition-all duration-300" : ""
                 }`}
               ></div>
-            </div>
-          </div>
-          <div>
 
-          </div>
+
         </nav>
       </div>
     </div>
