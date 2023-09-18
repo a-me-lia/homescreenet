@@ -52,12 +52,15 @@ function ImageWithCaption(props: any) {
   return (
     <>
       {" "}
+      <div className="relative mt-6 w-full h-96">
       <Image
         src={props.src}
         alt={props.alt}
+        fill
         {...props}
-        className="object-cover mt-6"
+        className="object-cover rounded-lg"
       ></Image>
+      </div>
       <p className="text-[14px] opacity-60 mt-2  mb-8">{props.caption}</p>
     </>
   );
@@ -78,7 +81,7 @@ export function Mdx({ code }: MdxProps) {
 
   return (
     <article className="prose prose-quoteless prose-neutral dark:prose-invert">
-      <Component components={{ ...components }} />2
+      <Component components={{ ...components }} />
     </article>
   );
 }
