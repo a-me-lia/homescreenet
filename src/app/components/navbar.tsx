@@ -94,20 +94,20 @@ export default function Navbar() {
           <div className=" bg-gray-200 h-[1px] mt-2 "></div>
 
           <div className=" md:hidden block h-4 mt-2 mb-2 text-[14px] text-neutral-500 flex flex-row">
-                    <Link href={'/home'} className="mr-1">Homescree.net </Link>
+                    <Link href={'/home'} className="mr-1  hover:text-neutral-400">Homescree.net </Link>
 
 
 
 
 
 
-                      <Link className="mr-1" href={`/${pathitems[0]}`}> / {pathitems[0]}</Link>
+                      <Link className="mr-1 hover:text-neutral-400" href={`/${pathitems[0]}`}> / {pathitems[0]}</Link>
 
                   {level >= 2 && (
-                      <Link className="mr-1" href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}`}> / {pathitems[1]}</Link>
+                      <Link className="mr-1  hover:text-neutral-400" href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}`}> / {pathitems[1]}</Link>
                   )}
                   {level == 3 && (
-                      <Link href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}/${pathitems[2]}`}> / {pathitems[2]}</Link>
+                      <Link className=" hover:text-neutral-400" href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}/${pathitems[2]}`}> / {pathitems[2]}</Link>
                   )}
             </div>
   
