@@ -51,13 +51,14 @@ export default function Tag({
     }
   }
 
-  const refreshData = () => {
-    router.refresh();
-  };
+
 
   useEffect(() => {
+    const refreshData = () => {
+      router.refresh();
+    };
     refreshData()
-  },[searchParams, refreshData]);
+  },[searchParams]);
 
   return (
     <ul
