@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
-
+import TagFilter from "./tagFilter";
 import Tag from "./tag";
 import { useSearchParams } from "next/navigation";
 
@@ -11,14 +11,13 @@ import { Balancer } from "react-wrap-balancer";
 export default function Client(props: any) {
   const searchParams = useSearchParams();
 
-  function removeParam() {}
-
   return (
     <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative ">
       <h1 className="font-bold text-2xl mb-2 mt-32  md:mt-24">blog :w:</h1>
       <h2 className=" text-lg mb-8 ">
         <Balancer> read about the world. and sometimes shrimp.</Balancer>
       </h2>
+      <TagFilter></TagFilter>
 
       {allBlogs
         .sort((a, b) => {

@@ -46,7 +46,6 @@ export default function Page() {
               "opacity-10 ",
             );
           }
-
         }
       }
     },
