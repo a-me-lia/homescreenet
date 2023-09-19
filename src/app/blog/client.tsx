@@ -4,12 +4,12 @@ import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
 
 import Tag from "./tag";
+import { useSearchParams } from "next/navigation";
 
 import { Balancer } from "react-wrap-balancer";
 
 export default function Client(props: any) {
-
-  
+  const searchParams = useSearchParams();
 
   function removeParam() {}
 

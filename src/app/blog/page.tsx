@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const allViews = await getViewsCount();
-  let bing = new URLSearchParams();
 
   return (
     <>

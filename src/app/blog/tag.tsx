@@ -51,10 +51,8 @@ export default function Tag({
     }
   }
 
-  const href = usePathname();
-
   const refreshData = () => {
-    router.replace(href);
+    router.refresh();
   };
 
   useEffect(() => {
