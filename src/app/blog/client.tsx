@@ -4,22 +4,12 @@ import { allBlogs } from "@/../.contentlayer/generated";
 import ViewCounter from "./view-counter";
 
 import Tag from "./tag";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 
 import { Balancer } from "react-wrap-balancer";
 
 export default function Client(props: any) {
-  const searchParams = useSearchParams();
 
-  const router = useRouter();
-  const href = usePathname();
-
-  useEffect(() => {
-    const refreshData = () => {
-      router.replace(href);
-    };
-  });
+  
 
   function removeParam() {}
 

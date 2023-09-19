@@ -1,6 +1,6 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import RootLayout from "../layout";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const bgColors = [
   "bg-red-500",
@@ -14,8 +14,6 @@ export default function Tag({
   tags,
 }: {
   tags: string;
-  setActive?: Function;
-  冰淇淋?: string[];
 }) {
   let arr = tags.split(",");
   let Δ: number[] = [];
@@ -52,6 +50,16 @@ export default function Tag({
       router.replace(`/blog?tags=${prevTags}`, { scroll: false });
     }
   }
+
+  const href = usePathname();
+
+  const refreshData = () => {
+    router.replace(href);
+  };
+
+  useEffect(() => {
+    refreshData()
+  },[searchParams]);
 
   return (
     <ul
