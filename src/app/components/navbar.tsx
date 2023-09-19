@@ -49,7 +49,7 @@ export default function Navbar() {
   useEffect(()=>{
     setWidth(document.getElementById('path')?.offsetWidth ? document.getElementById('path')?.offsetWidth! : 0)
 
-  })
+  },[])
   
 
   return (

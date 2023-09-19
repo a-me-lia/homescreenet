@@ -57,7 +57,7 @@ export default function Tag({
 
   useEffect(() => {
     refreshData()
-  },[searchParams]);
+  },[searchParams, refreshData]);
 
   return (
     <ul
