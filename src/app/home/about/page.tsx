@@ -46,10 +46,7 @@ export default function Page() {
               "opacity-10 ",
             );
           }
-          // if(i == 1)console.log(element.className)
 
-          // if(i == 1)console.log(element.getBoundingClientRect().top )
-          // if(i == 1)console.log( height - element.getBoundingClientRect().top )
         }
       }
     },
