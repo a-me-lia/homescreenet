@@ -12,6 +12,8 @@ const bgColors = [
 
 const cats = ["electronics", "dev", "shrimp", "life", "music", "other"];
 
+
+
 export default function TagFilter() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -27,6 +29,14 @@ export default function TagFilter() {
         bgColors.length) -
       1;
   }
+
+  let notInTags:string[] = []
+  for(let i = 0; i < cats.length; i++){
+    if(tags.indexOf(cats[i]) == -1){
+        notInTags.push(cats[i])
+    }
+    }
+    console.log(notInTags)
 
   function removeTag(tag: string) {
     let prevTags = tags;
@@ -44,8 +54,8 @@ export default function TagFilter() {
 
   function addTag() {
     let tag = (document.getElementById("selector") as HTMLInputElement).value;
-    console.log(tag)
-    
+    console.log(tag);
+
     let prevTags = searchParams.get("tags")?.split(",");
     if (!prevTags) {
       router.replace(`/blog?tags=${tag}`, {
@@ -104,9 +114,13 @@ export default function TagFilter() {
         </li>
       ))}
       <li
-        className={`h-full ${selected ? 'w-32' : 'w-7'} rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
-        onMouseEnter={() => setSelected(true)}
-        onMouseLeave={()=>setSelected(false)} 
+        className={`h-full w-7 hover:w-32 rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
+        onMouseEnter={() =>
+          setTimeout(() => {
+            setSelected(true);
+          }, 320)
+        }
+        onMouseLeave={() => setSelected(false)}
       >
         <div className="h-full w-6 flex flex-row items-center justify-center">
           <div className="rotate-45">
@@ -131,30 +145,32 @@ export default function TagFilter() {
           </div>
         </div>
 
-
-          <select
-          onChange={()=>{
-            addTag()
-            setSelected(false)
-          }} 
-          name="" 
+        <select
+        onMouseLeave={() => setSelected(false)}
+          onChange={() => {
+            addTag();
+            setSelected(false);
+          }}
+          name=""
           id="selector"
-          className={`bg-transparent transition-all duration-0 delay-500 ${selected ? 'block' : 'hidden'}`}>
-            <option disabled value="">Add tag...</option>
-            {cats.map((entry, index) => (
-              <option
-                key={index}
-                id={index.toString()}
-                onChange={() => {
-                  console.log('dfv')
-                }}
-                value={entry}
-              >
-                {entry}
-              </option>
-            ))}
-          </select>
-
+          className={`bg-transparent ${selected ? "block" : "hidden"} text-[14px] w-24`}
+        >
+          <option selected disabled value="">
+            Add tag...
+          </option>
+          {notInTags.map((entry, index) => (
+            <option
+              key={index}
+              id={index.toString()}
+              onChange={() => {
+                console.log("dfv");
+              }}
+              value={entry}
+            >
+              {entry}
+            </option>
+          ))}
+        </select>
       </li>
     </ul>
   );
