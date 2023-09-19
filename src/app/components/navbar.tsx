@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navItems = {
-  "/": {
+  "/home": {
     name: "home",
     id: "0",
   },
@@ -29,13 +29,13 @@ export default function Navbar() {
     pathname = "/blog";
   }
   if (pathname.includes("/about")) {
-    pathname = "/";
+    pathname = "/home";
   }
   if (pathname.includes("/resume")) {
-    pathname = "/";
+    pathname = "/home";
   }
   if (pathname.includes("/home")) {
-    pathname = "/";
+    pathname = "/home";
   }
 
   const[width, setWidth] = useState(0)
@@ -95,10 +95,6 @@ export default function Navbar() {
 
           <div className=" md:hidden block h-4 mt-2 mb-2 text-[14px] text-neutral-500 flex flex-row">
                     <Link href={'/home'} className="mr-1  hover:text-neutral-400">Homescree.net </Link>
-
-
-
-
 
 
                       <Link className="mr-1 hover:text-neutral-400" href={`/${pathitems[0]}`}> / {pathitems[0]}</Link>
