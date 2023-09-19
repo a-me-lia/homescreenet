@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -38,20 +38,28 @@ export default function Navbar() {
     pathname = "/";
   }
 
+  const[width, setWidth] = useState(0)
+
 
   let path = usePathname()
   path = path.slice(1)
   let pathitems = path.split('/')
   let level = pathitems.length
 
-  return (
-    <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
-      {" "}
-      <div className="md:mx-auto md:w-[742px] mx-4">
-        <nav>
-          <div className="flex flex-row ">
+  useEffect(()=>{
+    setWidth(document.getElementById('path')?.offsetWidth ? document.getElementById('path')?.offsetWidth! : 0)
 
-                <div className="flex flex-row items-baseline -mr-6">
+  })
+  
+
+  return (
+    <nav className="flex flex-col ">
+    <div className="md:mx-auto md:w-[742px]  mx-4 h-max  flex flex-col fixed right-0 top-0 left-0 z-50 bg-gradient-to-b pb-4 from-white via-white to-transparent via-90% font-mono ">
+
+
+          <div className="flex flex-row md:mt-8 mt-10 ">
+
+                <div className="flex flex-row items-baseline -mr-6 ">
                   <Link href={'/'} className="md:block hidden" id="homescree.net">
                     Homescree.net&thinsp;/&thinsp;
                   </Link>
@@ -72,7 +80,7 @@ export default function Navbar() {
                   })}
                 </div>
 
-            <h2 className="font-mono md:block hidden">
+            <h2 className=" md:block hidden">
                   {level >= 2 && (
                       <Link href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}`}>/ {pathitems[1]}</Link>
                   )}
@@ -82,9 +90,32 @@ export default function Navbar() {
             </h2>
           </div>
 
-          <div className="w-full bg-gray-200 h-[1px]   mt-2"></div>
-        </nav>
+
+          <div className=" bg-gray-200 h-[1px] mt-2 "></div>
+
+          <div className=" md:hidden block h-4 mt-2 mb-2 text-[14px] text-neutral-500 flex flex-row">
+                    <Link href={'/home'} className="mr-1">Homescree.net </Link>
+
+
+
+
+
+
+                      <Link className="mr-1" href={`/${pathitems[0]}`}> / {pathitems[0]}</Link>
+
+                  {level >= 2 && (
+                      <Link className="mr-1" href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}`}> / {pathitems[1]}</Link>
+                  )}
+                  {level == 3 && (
+                      <Link href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}/${pathitems[2]}`}> / {pathitems[2]}</Link>
+                  )}
+            </div>
+  
       </div>
-    </div>
+
+
+
+
+    </nav>
   );
 }

@@ -57,7 +57,7 @@ export default function Page() {
   );
 
   return (
-    <main className="min-h-screen bg-white flex flex-col">
+    <section className="min-h-screen bg-white flex flex-col">
       <div className="md:mx-auto mx-4 md:w-[742px] mt-32 mb-24 text-[16px] space-y-12 font-mono ">
         <h1 className="text-[#ff0000] text-[32px]">
           Caroline is allergic to shrimp
@@ -66,6 +66,6 @@ export default function Page() {
           Being human - My cultural experiences{" "}
         </Link>
       </div>
-    </main>
+    </section>
   );
 }

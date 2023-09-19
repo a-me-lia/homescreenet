@@ -11,13 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  
+
   return (
-    <main className="min-h-screen bg-white">
-      <div
-        id="style-1"
-        className="mx-4 w-full md:mx-auto md:w-[742px] mt-32 relative "
-      >
+    <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px] mt-32 relative">
         <h1 className="font-bold text-2xl mb-2 ">home</h1>
 
           <ul className="flex flex-col">
@@ -25,7 +21,6 @@ export default function Page() {
           <li><Link href="/home/resume">Resume</Link></li>
           </ul>
 
-      </div>
     </main>
   );
 }
