@@ -94,8 +94,7 @@ export default function Navbar() {
       <div className="md:mx-auto md:w-[742px] mx-4">
         <nav>
           <div className="flex flex-row ">
-            <div className="flex flex-row  bg-white items-baseline justify-between overflow-x-hidden ">
-              <div className="flex flex-col font-mono text-[16px] w-full bg-white">
+
                 <div className="flex flex-row items-baseline -mr-6">
                   <Link href={'/'} className="md:block hidden" id="homescree.net">
                     Homescree.net&thinsp;/&thinsp;
@@ -116,8 +115,7 @@ export default function Navbar() {
                     );
                   })}
                 </div>
-              </div>
-            </div>
+
             <h2 className="font-mono md:block hidden">
                   {level >= 2 && (
                       <Link href={`/${pathitems[0]}${pathitems[0] != '' ? '/' : ''}${pathitems[1]}`}>/ {pathitems[1]}</Link>

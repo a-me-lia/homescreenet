@@ -1,5 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
+import RootLayout from "../layout";
 
 const bgColors = [
   "bg-red-500",
@@ -68,6 +69,7 @@ export default function Tag({
           id={index.toString()}
           onClick={() => {
             updateParams(entry);
+            
           }}
         >
           {entry}
