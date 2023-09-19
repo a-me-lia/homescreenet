@@ -4,7 +4,8 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.slice(doc._raw.flattenedPath.indexOf('/') + 1), 
+    resolve: (doc) =>
+      doc._raw.flattenedPath.slice(doc._raw.flattenedPath.indexOf("/") + 1),
   },
   structuredData: {
     type: "object",
@@ -79,6 +80,7 @@ export const AboutPage = defineDocumentType(() => ({
   computedFields,
 }));
 
-
-
-export default makeSource({ contentDirPath: "content", documentTypes: [Blog,AboutPage]  });
+export default makeSource({
+  contentDirPath: "content",
+  documentTypes: [Blog, AboutPage],
+});

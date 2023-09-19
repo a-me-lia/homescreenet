@@ -1,5 +1,5 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 const bgColors = [
@@ -10,11 +10,7 @@ const bgColors = [
   "bg-orange-500",
 ];
 
-export default function Tag({
-  tags,
-}: {
-  tags: string;
-}) {
+export default function Tag({ tags }: { tags: string }) {
   let arr = tags.split(",");
   let Δ: number[] = [];
 
@@ -51,14 +47,12 @@ export default function Tag({
     }
   }
 
-
-
   useEffect(() => {
     const refreshData = () => {
       router.refresh();
     };
-    refreshData()
-  },[searchParams]);
+    refreshData();
+  }, [searchParams]);
 
   return (
     <ul
@@ -76,7 +70,6 @@ export default function Tag({
           id={index.toString()}
           onClick={() => {
             updateParams(entry);
-            
           }}
         >
           {entry}
