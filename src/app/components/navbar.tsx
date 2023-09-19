@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Router from "next/router";
 import Link from "next/link";
 
 const navItems = {
@@ -24,11 +23,6 @@ const navItems = {
   },
 };
 
-const rootlevel = [
-  '','blog/', 'guestbook/','about/'
-]
-
-
 export default function Navbar() {
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog")) {
@@ -44,49 +38,11 @@ export default function Navbar() {
     pathname = "/";
   }
 
-  const [selectedTab, setSelectedTab] = useState(0);
-  const [width, setWidth] = useState(0);
-
-  const [tabs, setTabs] = useState([false, false, false, false]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWidth(window.innerWidth);
-      window.addEventListener("resize", () => setWidth(window.innerWidth) );
-    }
-  }, []);
-
-
-
-
-  useEffect(() => {
-    let toTab = "0";
-
-    {
-      Object.entries(navItems).map(([path, { name, id }]) => {
-        const isActive = path === pathname;
-        return isActive ? (toTab = id) : null;
-      });
-    }
-
-
-
-
-
-
-  }, [pathname, selectedTab, tabs, width]);
-
 
   let path = usePathname()
-
-
   path = path.slice(1)
-
   let pathitems = path.split('/')
   let level = pathitems.length
-  console.log(pathitems)
-
-
 
   return (
     <div className=" h-24 flex flex-col w-full justify-end fixed right-0 top-0 left-0 z-50 bg-white">
