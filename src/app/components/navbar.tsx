@@ -93,7 +93,7 @@ export default function Navbar() {
 
           <div className=" bg-gray-200 h-[1px] mt-2 "></div>
 
-          <div className=" md:hidden block h-4 mt-2 mb-2 text-[14px] text-neutral-500 flex flex-row">
+          <div className=" md:hidden h-4 mt-2 mb-2 text-[14px] text-neutral-500 flex flex-row">
                     <Link href={'/home'} className="mr-1  hover:text-neutral-400">Homescree.net </Link>
 
 
