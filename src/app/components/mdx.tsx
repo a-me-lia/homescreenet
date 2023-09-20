@@ -11,7 +11,7 @@ const CustomLink = (props: any) => {
 
   if (href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
+      <Link className="text-blue-400" href={href} {...props}>
         {props.children}
       </Link>
     );
@@ -81,6 +81,7 @@ const components = {
   li: CustomLi,
   ul: CustomUl,
   Image: ImageWithCaption,
+  Link: CustomLink
 };
 
 export function Mdx({ code }: MdxProps) {
