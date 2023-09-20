@@ -155,7 +155,7 @@ export default function TagFilter() {
           id="selector"
           className={`bg-transparent ${selected ? "block" : "hidden"} text-[14px] w-24`}
         >
-          <option selected disabled value="">
+          <option  disabled value="">
             Add tag...
           </option>
           {notInTags.map((entry, index) => (

@@ -48,7 +48,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${inter.variable} font-sans  ${plexMono.variable} font-ibm `}
+        className={`${inter.variable} font-sans text-neutral-800  ${plexMono.variable} font-ibm bg-white `}
       >
         <LayoutWrapper>
           <Navbar></Navbar>

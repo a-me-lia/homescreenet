@@ -5,8 +5,8 @@ import ViewCounter from "./view-counter";
 import TagFilter from "./tagFilter";
 import Tag from "./tag";
 import { useSearchParams } from "next/navigation";
+import Balancer from "react-wrap-balancer";
 
-import { Balancer } from "react-wrap-balancer";
 
 export default function Client(props: any) {
   const searchParams = useSearchParams();
@@ -47,7 +47,7 @@ export default function Client(props: any) {
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex flex-col">
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <p className="text-neutral-900  tracking-tight">
                 {post.title}
               </p>
 
