@@ -111,14 +111,15 @@ export default function TagFilter() {
         </li>
       ))}
       <li
-        className={`h-full w-7 hover:w-32 rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
-        onMouseEnter={() =>{
-            setSelected(true);
-          (document.getElementById("selector") as HTMLSelectElement).selectedIndex=0}
-        }
-        onMouseLeave={() => setSelected(false)}
+        className={`h-full ${selected ? 'w-32' : 'w-7'} rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
+
+
       >
-        <div className="h-full w-6 flex flex-row items-center justify-center">
+        <div className="h-full w-6 flex flex-row items-center justify-center"
+                onClick={() =>{
+                    setSelected(!selected);
+                  (document.getElementById("selector") as HTMLSelectElement).selectedIndex=0}
+                }>
           <div className="rotate-45">
             <svg
               fill="#AAAAAA"
@@ -142,16 +143,15 @@ export default function TagFilter() {
         </div>
 
         <select
-          onMouseLeave={() => {}}
           onChange={() => {
             addTag();
             setSelected(false);
           }}
           name=""
           id="selector"
-          className={`bg-transparent ${
-            selected ? "block" : "hidden"
-          } text-[14px] w-24`}
+          className={`bg-transparent transition-all duration-300 ${
+            selected ? " delay-300 w-24" : " delay-0 w-0"
+          } text-[14px] `}
         >
           <option disabled value="">
             Add tag...
