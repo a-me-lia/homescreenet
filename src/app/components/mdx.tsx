@@ -2,6 +2,12 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
 import Image from "next/image";
 
+const hljs = require('highlight.js/lib/core');
+
+
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+
+
 interface MdxProps {
   code: string;
 }
@@ -86,6 +92,11 @@ const CustomLi = (props: any) => {
 const CustomHr = (props: any) => {
   return <hr className="mb-4 mt-12">{props.children}</hr>;
 };
+
+const CustomCheckbox = (props: any) => {
+  return <input type='checkbox' {...props}></input>
+};
+
 
 function ImageWithCaption(props: any) {
   return (

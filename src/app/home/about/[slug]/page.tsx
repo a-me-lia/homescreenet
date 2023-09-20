@@ -33,7 +33,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://homescree.net/blog/${slug}`,
+      url: `https://homescree.net/home/about/${slug}`,
       images: [
         {
           url: ogImage,

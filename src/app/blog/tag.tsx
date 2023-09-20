@@ -61,11 +61,19 @@ export default function Tag({ tags }: { tags: string }) {
         e.preventDefault();
       }}
     >
-      {arr.map((entry, index) => (
+      {arr.sort((a, b) => {
+        if(a == 'other'){
+          return 1
+        }
+          if (a < b) {
+            return -1;
+          }
+          return 1;
+        }).map((entry, index) => (
         <li
           className={`${
-            Δ[index] != -1 ? bgColors[Δ[index]] : "bg-gray-400"
-          } rounded-md px-2 text-[14px] h-min  text-black text-opacity-100 hover:text-white bg-opacity-30 hover:bg-opacity-100 transition-all duration-300 `}
+            entry !== 'other' ? bgColors[Δ[index]] : "bg-gray-400"
+          } rounded-md px-2 text-[14px] h-min  text-black text-opacity-100  bg-opacity-30 hover:bg-opacity-80 transition-all duration-300 `}
           key={index}
           id={index.toString()}
           onClick={() => {

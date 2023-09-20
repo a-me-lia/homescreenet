@@ -6,6 +6,7 @@ import Balancer from "react-wrap-balancer";
 import ViewCounter from "../view-counter";
 import { getViewsCount } from "../../../lib/metrics";
 import Tag from "../tag";
+
 export async function generateMetadata({
   params,
 }: {
