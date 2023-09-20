@@ -11,7 +11,7 @@ const bgColors = [
 ];
 
 export default function Tag({ tags }: { tags: string }) {
-  let arr = tags.split(",");
+  let arr = tags.trim().split(",");
   let Δ: number[] = [];
 
   for (let i = 0; i < arr.length; i++) {

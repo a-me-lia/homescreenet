@@ -28,7 +28,7 @@ export default function Client(props: any) {
         })
         .filter((post) => {
           let activeTags = searchParams.get("tags")?.split(",");
-          let postTags = post.tags.split(",");
+          let postTags = post.tags.trim().split(",");
           let postHasActive = true;
           if (activeTags) {
             postHasActive = false;
