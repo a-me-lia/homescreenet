@@ -113,9 +113,7 @@ export default function TagFilter() {
       <li
         className={`h-full w-7 hover:w-32 rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
         onMouseEnter={() =>{
-          setTimeout(() => {
             setSelected(true);
-          }, 320),
           (document.getElementById("selector") as HTMLSelectElement).selectedIndex=0}
         }
         onMouseLeave={() => setSelected(false)}
@@ -144,7 +142,7 @@ export default function TagFilter() {
         </div>
 
         <select
-          onMouseLeave={() => setSelected(false)}
+          onMouseLeave={() => {}}
           onChange={() => {
             addTag();
             setSelected(false);
