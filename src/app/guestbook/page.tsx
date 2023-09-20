@@ -1,4 +1,3 @@
-
 import { queryBuilder } from "../../lib/planetscale";
 import Client from "./client";
 import H1 from "../components/h1";
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
   title: "Guestbook | Matthew Guo",
   description: "Bing Chilling",
 };
-
 
 export default async function Page() {
   let entries;

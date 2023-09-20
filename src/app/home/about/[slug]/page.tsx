@@ -97,8 +97,7 @@ export default async function Blog({ params }: { params: any }) {
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.publishedAt)}
         </p>
-        <div className="flex flex-row">
-        </div>
+        <div className="flex flex-row"></div>
       </div>
       <Mdx code={post.body.code} />
     </section>

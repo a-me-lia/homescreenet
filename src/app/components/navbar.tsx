@@ -81,17 +81,17 @@ export default function Navbar() {
           <h2 className=" md:block hidden">
             {level >= 2 && (
               <Link
-              className=" hover:text-neutral-500 transition-colors duration-200"
+                className=" hover:text-neutral-500 transition-colors duration-200"
                 href={`/${pathitems[0]}${pathitems[0] != "" ? "/" : ""}${
                   pathitems[1]
                 }`}
               >
-                 / {pathitems[1]}
+                / {pathitems[1]}
               </Link>
             )}
             {level == 3 && (
               <Link
-              className=" hover:text-neutral-500 transition-colors duration-200"
+                className=" hover:text-neutral-500 transition-colors duration-200"
                 href={`/${pathitems[0]}${pathitems[0] != "" ? "/" : ""}${
                   pathitems[1]
                 }/${pathitems[2]}`}

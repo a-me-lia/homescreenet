@@ -12,8 +12,6 @@ const bgColors = [
 
 const cats = ["electronics", "dev", "shrimp", "life", "music", "other"];
 
-
-
 export default function TagFilter() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -30,13 +28,13 @@ export default function TagFilter() {
       1;
   }
 
-  let notInTags:string[] = []
-  for(let i = 0; i < cats.length; i++){
-    if(tags.indexOf(cats[i]) == -1){
-        notInTags.push(cats[i])
+  let notInTags: string[] = [];
+  for (let i = 0; i < cats.length; i++) {
+    if (tags.indexOf(cats[i]) == -1) {
+      notInTags.push(cats[i]);
     }
-    }
-    console.log(notInTags)
+  }
+  console.log(notInTags);
 
   function removeTag(tag: string) {
     let prevTags = tags;
@@ -146,16 +144,18 @@ export default function TagFilter() {
         </div>
 
         <select
-        onMouseLeave={() => setSelected(false)}
+          onMouseLeave={() => setSelected(false)}
           onChange={() => {
             addTag();
             setSelected(false);
           }}
           name=""
           id="selector"
-          className={`bg-transparent ${selected ? "block" : "hidden"} text-[14px] w-24`}
+          className={`bg-transparent ${
+            selected ? "block" : "hidden"
+          } text-[14px] w-24`}
         >
-          <option  disabled value="">
+          <option disabled value="">
             Add tag...
           </option>
           {notInTags.map((entry, index) => (

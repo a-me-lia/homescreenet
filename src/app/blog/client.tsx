@@ -8,13 +8,12 @@ import { useSearchParams } from "next/navigation";
 import Balancer from "react-wrap-balancer";
 import H1 from "../components/h1";
 
-
 export default function Client(props: any) {
   const searchParams = useSearchParams();
 
   return (
     <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative ">
-     <H1>blog :w:</H1>
+      <H1>blog :w:</H1>
       <h2 className=" text-lg mb-8 ">
         <Balancer> read about the world. and sometimes shrimp.</Balancer>
       </h2>
@@ -48,9 +47,7 @@ export default function Client(props: any) {
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex flex-col">
-              <p className="text-neutral-900  tracking-tight">
-                {post.title}
-              </p>
+              <p className="text-neutral-900  tracking-tight">{post.title}</p>
 
               <div className="flex flex-row items-baseline ">
                 {" "}
