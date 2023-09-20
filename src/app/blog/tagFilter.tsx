@@ -150,7 +150,7 @@ export default function TagFilter() {
           name=""
           id="selector"
           className={`bg-transparent transition-all duration-300 ${
-            selected ? " delay-300 w-24" : " delay-0 w-0"
+            selected ? "  w-24" : "  w-0"
           } text-[14px] `}
         >
           <option disabled value="">
