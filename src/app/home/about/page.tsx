@@ -2,6 +2,13 @@
 
 import Link from "next/link";
 import H1 from "@/app/components/h1";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Matthew Guo",
+  description: "Bing Chilling",
+};
+
 
 export default function Page() {
 

@@ -1,7 +1,8 @@
-"use server";
+
 import { queryBuilder } from "../../lib/planetscale";
 import Client from "./client";
 import H1 from "../components/h1";
+import { Metadata } from "next";
 
 async function getGuestbook() {
   const data = await queryBuilder
@@ -13,6 +14,12 @@ async function getGuestbook() {
 
   return data.reverse();
 }
+
+export const metadata: Metadata = {
+  title: "Guestbook | Matthew Guo",
+  description: "Bing Chilling",
+};
+
 
 export default async function Page() {
   let entries;
