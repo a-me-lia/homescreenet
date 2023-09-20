@@ -1,4 +1,5 @@
 import Link from "next/link";
+import H1 from "../components/h1";
 
 import { Metadata } from "next";
 
@@ -10,8 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
-      <h1 className="font-bold text-2xl mb-2 md:mt-24 mt-32">home</h1>
-
+      <H1>home</H1>
       <ul className="flex flex-col">
         <li>
           <Link href="/home/about">About me</Link>

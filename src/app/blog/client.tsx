@@ -6,6 +6,7 @@ import TagFilter from "./tagFilter";
 import Tag from "./tag";
 import { useSearchParams } from "next/navigation";
 import Balancer from "react-wrap-balancer";
+import H1 from "../components/h1";
 
 
 export default function Client(props: any) {
@@ -13,7 +14,7 @@ export default function Client(props: any) {
 
   return (
     <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative ">
-      <h1 className="font-bold text-2xl mb-2 mt-32  md:mt-24">blog :w:</h1>
+     <H1>blog :w:</H1>
       <h2 className=" text-lg mb-8 ">
         <Balancer> read about the world. and sometimes shrimp.</Balancer>
       </h2>

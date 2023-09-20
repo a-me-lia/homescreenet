@@ -1,6 +1,7 @@
 "use server";
 import { queryBuilder } from "../../lib/planetscale";
 import Client from "./client";
+import H1 from "../components/h1";
 
 async function getGuestbook() {
   const data = await queryBuilder
@@ -30,7 +31,7 @@ export default async function Page() {
 
   return (
     <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]   relative">
-      <h1 className="font-bold  text-2xl mb-8  md:mt-24 mt-32">guestbook :p</h1>
+      <H1>guestbook :p</H1>
       <Client></Client>
       {entries?.map((entry) => (
         <div key={entry.id} className="flex flex-col space-y-1 mb-4">

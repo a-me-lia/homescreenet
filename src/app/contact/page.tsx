@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import H1 from "../components/h1";
 
 export const metadata: Metadata = {
   title: "Contact | Matthew Guo",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
-      <h1 className="font-bold text-2xl mb-8 mt-32  md:mt-24">contact ^-^</h1>
+      <H1>contact ^-^</H1>
     </section>
   );
 }

@@ -58,7 +58,7 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
-      <div className="md:mx-auto mx-4 md:w-[742px] mt-32 mb-32 text-[16px] space-y-16  ">
+      <div className="md:mx-auto mx-4 md:w-[742px] mt-32 md:mt-24 mb-32 text-[16px] space-y-16  ">
         <div>
           <h1 className=" text-[32px]">Being Human</h1>
           <div className="flex flex-row justify-between align-baseline">
