@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="flex flex-row md:mt-8 mt-10 ">
           <div className="flex flex-row items-baseline -mr-6 ">
             <Link href={"/"} className="md:block hidden" id="homescree.net">
-              Homescree.net&thinsp;/&thinsp;
+              Homescree.net / &thinsp;
             </Link>
 
             {Object.entries(navItems).map(([path, { name, id }]) => {
@@ -85,7 +85,7 @@ export default function Navbar() {
                   pathitems[1]
                 }`}
               >
-                / {pathitems[1]}
+                 / {pathitems[1]}
               </Link>
             )}
             {level == 3 && (
