@@ -5,7 +5,7 @@ const computedFields = {
   slug: {
     type: "string",
     resolve: (doc) =>
-      doc._raw.flattenedPath.slice(doc._raw.flattenedPath.indexOf("/") + 1),
+      doc._raw.flattenedPath.includes('blog') ? doc._raw.flattenedPath.slice(doc._raw.flattenedPath.indexOf('/')+1) : doc._raw.flattenedPath.slice(doc._raw.flattenedPath.indexOf('/')+1),
   },
   structuredData: {
     type: "object",
@@ -59,7 +59,8 @@ export const Blog = defineDocumentType(() => ({
 
 export const AboutPage = defineDocumentType(() => ({
   name: "AboutPage",
-  filePathPattern: `about.**/*.mdx`,
+  contentDirPath: '',
+  filePathPattern: `about/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
