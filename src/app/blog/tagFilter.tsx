@@ -52,7 +52,6 @@ export default function TagFilter() {
 
   function addTag() {
     let tag = (document.getElementById("selector") as HTMLInputElement).value;
-    console.log(tag);
 
     let prevTags = searchParams.get("tags")?.split(",");
     if (!prevTags) {
@@ -113,10 +112,11 @@ export default function TagFilter() {
       ))}
       <li
         className={`h-full w-7 hover:w-32 rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
-        onMouseEnter={() =>
+        onMouseEnter={() =>{
           setTimeout(() => {
             setSelected(true);
-          }, 320)
+          }, 320),
+          (document.getElementById("selector") as HTMLSelectElement).selectedIndex=0}
         }
         onMouseLeave={() => setSelected(false)}
       >
