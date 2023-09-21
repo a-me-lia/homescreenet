@@ -71,7 +71,7 @@ export default function TagFilter() {
     <>
     <p>Tags:</p>
     <ul
-      className=" flex flex-row items-baseline mt-2 mb-6  max-w-full flex-wrap gap-1"
+      className=" flex flex-row items-baseline mt-2 mb-6  max-w-full flex-wrap gap-x-1 gap-y-1.5"
       onClick={(e) => {
         e.preventDefault();
       }}
@@ -112,7 +112,7 @@ export default function TagFilter() {
         </li>
       ))}
       <li
-        className={`h-6 ${selected ? 'w-32' : 'w-7'} mr-20 rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
+        className={`h-6  ${selected ? 'w-32 mr-0' : 'w-7 mr-[100px]'}  rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
 
 
       >
@@ -150,7 +150,7 @@ export default function TagFilter() {
           }}
           name=""
           id="selector"
-          className={`bg-transparent transition-all duration-300 ${
+          className={`bg-transparent transition-all h-6 duration-300 ${
             selected ? "  w-24" : "  w-0"
           } text-[14px] `}
         >
