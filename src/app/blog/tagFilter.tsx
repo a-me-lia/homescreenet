@@ -68,19 +68,20 @@ export default function TagFilter() {
   const [selected, setSelected] = useState(false);
 
   return (
+    <>
+    <p>Tags:</p>
     <ul
-      className=" flex flex-row space-x-1 items-baseline mb-6 h-6"
+      className=" flex flex-row items-baseline mt-2 mb-6  max-w-full flex-wrap gap-1"
       onClick={(e) => {
         e.preventDefault();
       }}
     >
-      {true && <li className="">Tags:</li>}
 
       {tags.map((entry, index) => (
         <li
           className={`${
             Δ[index] != -1 ? bgColors[Δ[index]] : "bg-gray-400"
-          } rounded-md px-2 text-[14px] h-full flex flex-row items-center   text-black text-opacity-100  hover:outline-neutral-500 hover:bg-opacity-0 bg-opacity-30 border-2 border-opacity-0 hover:border-opacity-100 transition-all duration-300 `}
+          } rounded-md px-2 text-[14px] h-6 flex flex-row items-center   text-black text-opacity-100 hover:bg-opacity-0 bg-opacity-30 border-2 border-opacity-0 hover:border-opacity-100 transition-all duration-300 `}
           key={index}
           id={index.toString()}
           onClick={() => {
@@ -111,7 +112,7 @@ export default function TagFilter() {
         </li>
       ))}
       <li
-        className={`h-full ${selected ? 'w-32' : 'w-7'} rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
+        className={`h-6 ${selected ? 'w-32' : 'w-7'} mr-20 rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
 
 
       >
@@ -171,5 +172,6 @@ export default function TagFilter() {
         </select>
       </li>
     </ul>
+    </>
   );
 }
