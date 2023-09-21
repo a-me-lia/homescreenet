@@ -12,13 +12,16 @@ const bgColors = [
 
 export default function Tag({ tags }: { tags: string }) {
   let arr = tags.trim().split(",");
+
   let Δ: number[] = [];
 
+
+
   for (let i = 0; i < arr.length; i++) {
-    Δ[i] =
-      ((arr[i].charCodeAt(0) + arr[i].charCodeAt(arr[i].length - 1)) %
-        bgColors.length) -
-      1;
+    console.log(((arr[i].charCodeAt(0) - 97 ) +  (arr[i].charCodeAt(1) - 97 )) * (360/52))
+
+
+    Δ[i] = ((arr[i].charCodeAt(0) - 97 ) +  (arr[i].charCodeAt(1) - 97 )) * (360/52) //value between 0 and 360, for hsl
   }
   const router = useRouter();
 
@@ -52,7 +55,7 @@ export default function Tag({ tags }: { tags: string }) {
       router.refresh();
     };
     refreshData();
-  }, [searchParams]);
+  }, [router, searchParams]);
 
   return (
     <ul
@@ -71,8 +74,9 @@ export default function Tag({ tags }: { tags: string }) {
           return 1;
         }).map((entry, index) => (
         <li
+        style={{background: `hsl(${Δ[index]}, 80%, 50%)`}}
           className={`${
-            entry !== 'other' ? bgColors[Δ[index]] : "bg-gray-400"
+            entry !== 'other' ? '' : "bg-gray-400"
           } rounded-md px-2 text-[14px] h-min  text-black text-opacity-100  bg-opacity-30 hover:bg-opacity-80 transition-all duration-300 `}
           key={index}
           id={index.toString()}
