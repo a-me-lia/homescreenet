@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="min-h-screen bg-white flex flex-col md:mx-auto mx-4 md:w-[742px] ">
+    <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>about</H1>
       {allAboutPages
         .sort((a, b) => {
