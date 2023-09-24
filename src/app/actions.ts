@@ -39,7 +39,7 @@ export async function saveGuestbookEntry(
 
 
 
-const resend = new Resend('re_bLUskV2G_HWZNuRsKD1o5x5HUoiV3DmKQ');
+const resend = new Resend(process.env.RESEND_KEY);
 
 
 export async function SendEmail(email:string, name:string, subject:string, content:string){
