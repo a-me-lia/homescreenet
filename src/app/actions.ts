@@ -45,7 +45,7 @@ const resend = new Resend(process.env.RESEND_KEY);
 export async function SendEmail(email:string, name:string, subject:string, content:string){
   try{
     const data = await resend.emails.send({
-      from: 'postmaster@homescree.net',
+      from: 'matthew@homescree.net',
       to: email,
       subject: 'Your message has been sent!',
       html:
