@@ -37,9 +37,10 @@ useEffect(()=>{
 
 
         <form
-        action={()=>{
+        action={async()=>{
         
-            SendEmail(email, name, subject, text);
+            const res = await SendEmail(email, name, subject, text);
+            console.log(res);
             (document.getElementById("form") as HTMLFormElement).reset()
             setEmail('')
             setName('')
