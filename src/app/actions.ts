@@ -43,19 +43,25 @@ const resend = new Resend(process.env.RESEND_KEY);
 
 
 export async function SendEmail(email:string, name:string, subject:string, content:string){
+  try{
+    const data = await resend.emails.send({
+      from: 'matthew@homescree.net',
+      to: email,
+      subject: 'Your message has been sent!',
+      html:
+       `<div>
+          <h3>Hi ${name}, your message: <strong>"${subject}"</strong> has been sent!</h3>
+          <p>You wrote: "${content}"</p>
+          <p>Stay tuned, you will hear back shortly :p</p>
+        </div>`
+    });
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+
 resend.emails.send({
-  from: 'forms@homescree.net',
-  to: email,
-  subject: 'Your message has been sent!',
-  html:
-   `<div>
-      <h3>Hi ${name}, your message: <strong>"${subject}"</strong> has been sent!</h3>
-      <p>You wrote: "${content}"</p>
-      <p>Stay tuned, you will hear back shortly :p</p>
-    </div>`
-});
-resend.emails.send({
-  from: 'forms@homescree.net',
+  from: 'matthew@homescree.net',
   to: 'matthewguo.x86@gmail.com',
   subject: `From Homescree.net: ${subject}`,
   html: `
