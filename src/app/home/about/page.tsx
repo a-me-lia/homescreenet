@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About | Matthew Guo",
-  description: "Bing Chilling",
+  description: `About me | "What did you eat today? What book do you love? Whenever you go out for fun, tell me, where do you go?"`,
 };
 
 export default function Page() {

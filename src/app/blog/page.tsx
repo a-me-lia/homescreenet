@@ -5,7 +5,7 @@ import Client from "./client";
 
 export const metadata: Metadata = {
   title: "Blog | Matthew Guo",
-  description: "Bing Chilling",
+  description: "A place where I put things I love or find interesting",
 };
 
 export default async function BlogPage() {

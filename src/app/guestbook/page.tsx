@@ -16,7 +16,7 @@ async function getGuestbook() {
 
 export const metadata: Metadata = {
   title: "Guestbook | Matthew Guo",
-  description: "Bing Chilling",
+  description: "Sign my guestbook and leave your message for others to see that you've been here",
 };
 
 export default async function Page() {

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Resume | Matthew Guo",
-  description: "Bing Chilling",
+  description: "Read and download my resume or CV",
 };
 
 export default function Page() {

@@ -5,7 +5,7 @@ import Form from "./form";
 
 export const metadata: Metadata = {
   title: "Contact | Matthew Guo",
-  description: "Bing Chilling",
+  description: "Reach Matthew Guo for projects, inquiries and other cool stuff.",
 };
 export default function Page() {
   return (
