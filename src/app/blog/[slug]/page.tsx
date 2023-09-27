@@ -92,7 +92,7 @@ export default async function Blog({ params }: { params: any }) {
   const [allViews] = await Promise.all([getViewsCount()]);
 
   return (
-    <section className="md:mx-auto md:w-[742px] mx-4">
+    <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>

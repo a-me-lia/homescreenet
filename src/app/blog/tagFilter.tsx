@@ -81,7 +81,7 @@ export default function TagFilter() {
         <li
           className={`${
             Δ[index] != -1 ? bgColors[Δ[index]] : "bg-gray-400"
-          } rounded-md px-2 text-[14px] h-6 flex flex-row items-center   text-black text-opacity-100 hover:bg-opacity-0 bg-opacity-30 border-2 border-opacity-0 hover:border-opacity-100 transition-all duration-300 `}
+          } rounded-md px-2 text-[14px] h-6 flex flex-row items-center box-border   text-black text-opacity-100 hover:bg-opacity-0 bg-opacity-30 border-2 border-opacity-0 hover:border-opacity-100 transition-all duration-300 `}
           key={index}
           id={index.toString()}
           onClick={() => {
@@ -112,7 +112,7 @@ export default function TagFilter() {
         </li>
       ))}
       <li
-        className={`h-6  ${selected ? 'w-32 mr-0' : 'w-7 mr-[100px]'}  rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
+        className={`h-6  box-border ${selected ? 'w-32 mr-0' : 'w-7 mr-[100px]'}  rounded-md border-2 flex flex-row items-center  transition-all duration-300`}
 
 
       >
