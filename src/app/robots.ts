@@ -6,6 +6,6 @@ export default function robots() {
       },
     ],
     sitemap: "https://homescree.net/sitemap.xml",
-    host: "https://homescree.net.io",
+    host: "https://homescree.net",
   };
 }
