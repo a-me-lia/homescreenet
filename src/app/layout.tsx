@@ -14,10 +14,10 @@ const plexMono = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: "Matthew Guo",
-  description: "冰淇淋",
+  description: "Matthew Guo's internet home",
   openGraph: {
     title: "Matthew Guo",
-    description: "冰淇淋",
+    description: "Matthew Guo's internet home ",
     url: "https://homescree.net",
     images: "https://homescree.net/favicon.ico",
     siteName: "Matthew Guo",

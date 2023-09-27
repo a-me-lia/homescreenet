@@ -11,7 +11,7 @@ export default async function sitemap() {
     lastModified: post.publishedAt,
   }));
 
-  const routes = ["", "/home", "/home/about", "/home/about/resume", "/blog", "/guestbook", "/contact"].map((route) => ({
+  const routes = ["", "/home", "/home/about", "/home/resume", "/blog", "/guestbook", "/contact"].map((route) => ({
     url: `https://homescree.net${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
