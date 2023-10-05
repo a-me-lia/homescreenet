@@ -16,7 +16,7 @@ const nextConfig = {
     GOOGLe_OAUTH_CLIENT_SECRET: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
     AUTH_SECRET: process.env.AUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    RESEND_KEY: process.env.RESEND_KEY
+    RESEND_KEY: process.env.RESEND_KEY,
   },
 };
 

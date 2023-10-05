@@ -1,10 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Inter } from "next/font/google";
+import { IBM_Plex_Sans, Be_Vietnam_Pro } from "next/font/google";
 import Navbar from "./components/navbar";
 import LayoutWrapper from "./layoutWrapper";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const vietnam = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-vietnam",
+});
 
 const plexMono = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -48,12 +52,15 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${inter.variable} font-sans text-neutral-800  ${plexMono.variable} font-ibm bg-white `}
+        className={`${vietnam.variable} font-sans text-neutral-800  ${plexMono.variable} font-ibm bg-white `}
       >
         <LayoutWrapper>
           <Navbar></Navbar>
           {children}
         </LayoutWrapper>
+        <div className="mt-36 text-[12px] text-black/25 pb-1 pl-1">
+          Matthew Guo
+        </div>
       </body>
     </html>
   );

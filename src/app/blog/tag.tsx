@@ -17,18 +17,17 @@ export default function Tag({ tags }: { tags: string }) {
 
   let Δ: number[] = [];
 
-  console.log(arr)
+  console.log(arr);
 
   arr.sort((a, b) => {
-    if(a == 'other'){
-      return 1
-    }
-      if (a < b) {
-        return -1;
-      }
+    if (a == "other") {
       return 1;
-    })
-
+    }
+    if (a < b) {
+      return -1;
+    }
+    return 1;
+  });
 
   for (let i = 0; i < arr.length; i++) {
     Δ[i] =
@@ -36,7 +35,6 @@ export default function Tag({ tags }: { tags: string }) {
         bgColors.length) -
       1;
   }
-
 
   const router = useRouter();
 
@@ -81,9 +79,9 @@ export default function Tag({ tags }: { tags: string }) {
     >
       {arr.map((entry, index) => (
         <li
-        // style={{background: `hsl(${Δ[index]}, 60%, 70%)`}}
+          // style={{background: `hsl(${Δ[index]}, 60%, 70%)`}}
           className={`${
-            entry !== 'other' ? `${bgColors[Δ[index]]}` : "bg-gray-400"
+            entry !== "other" ? `${bgColors[Δ[index]]}` : "bg-gray-400"
           } rounded-md px-2 text-[14px] h-min  text-black text-opacity-100  bg-opacity-30 hover:bg-opacity-80 transition-all duration-300 `}
           key={index}
           id={index.toString()}

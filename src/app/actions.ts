@@ -4,7 +4,7 @@ import { queryBuilder } from "../lib/planetscale";
 
 import { revalidatePath } from "next/cache";
 
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
 export async function increment(slug: string) {
   const data = await queryBuilder
@@ -37,36 +37,37 @@ export async function saveGuestbookEntry(
   revalidatePath("/guestbook");
 }
 
-
-
 const resend = new Resend(process.env.RESEND_KEY);
 
-
-export async function SendEmail(email:string, name:string, subject:string, content:string){
-  try{
+export async function SendEmail(
+  email: string,
+  name: string,
+  subject: string,
+  content: string,
+) {
+  try {
     const data = await resend.emails.send({
-      from: 'matthew@homescree.net',
+      from: "matthew@homescree.net",
       to: email,
-      subject: 'Your message has been sent!',
-      html:
-       `<div>
+      subject: "Your message has been sent!",
+      html: `<div>
           <h3>Hi ${name}, your message: <strong>"${subject}"</strong> has been sent!</h3>
           <p>You wrote: "${content}"</p>
           <p>Stay tuned, you will hear back shortly :p</p>
-        </div>`
+        </div>`,
     });
     resend.emails.send({
-      from: 'postmaster@homescree.net',
-      to: 'matthewguo.x86@gmail.com',
+      from: "postmaster@homescree.net",
+      to: "matthewguo.x86@gmail.com",
       subject: `From Homescree.net: ${subject}`,
       html: `
       <div>
       <h1>New form submission: <strong>${subject}</strong></h1>
       <p>${name} wrote: <br/> "${content}"</p>
-    </div>`
+    </div>`,
     });
-    return(data)
+    return data;
   } catch (error) {
-    return(error)
+    return error;
   }
 }
