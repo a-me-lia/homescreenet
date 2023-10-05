@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const rowClassnames = [
     'row-span-1',
@@ -20,13 +22,23 @@ interface CardProps {
 
 
 export const ExperienceCard: React.FC<CardProps> = ({children, rows, cols, title, time, borderClassname, bgClassname, image, width, alt, href}) => {
+
+  const [w, setWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      setWidth(window.innerWidth);
+      window.addEventListener("resize", () => setWidth(window.innerWidth));
+    }}, [])
+
+
     return(
-        <div className={`${rowClassnames[rows-1]} ${colClassnames[cols-1]} h-max ${borderClassname} rounded-lg p-0.5 font-light text-[14px]`}>
-        <div className={`w-full h-full ${bgClassname} p-4 rounded-lg`}>
+        <div className={`${rowClassnames[w < 768 ? cols-1:rows-1]} ${colClassnames[w < 768 ? 1:cols-1]} h-max ${borderClassname} rounded-lg p-0.5 font-light text-[14px]`}>
+        <div className={`w-full h-full ${bgClassname} md:p-4 p-2 rounded-lg`}>
           <div className="flex flex-row justify-between items-center w-full">
-            <h3 className="font-mono text-[20px] font-medium">{title}</h3>
+            <h3 className="font-mono text-[20px] font-medium mr-2">{title}</h3>
             {!(image && alt && href )&& (
-             <div className="relative w-40 h-10"></div>
+             <div className="relative w-0 h-10"></div>
             )}
             {image && alt && href && (
               <Link href={href} className="relative  h-10 "

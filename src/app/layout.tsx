@@ -58,7 +58,7 @@ export default function RootLayout({
           <Navbar></Navbar>
           {children}
         </LayoutWrapper>
-        <div className="mt-36 text-[12px] text-black/25 pb-1 pl-1">
+        <div className="mt-36 text-[12px] text-black/25 pb-1 pl-2">
           Matthew Guo
         </div>
       </body>
