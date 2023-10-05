@@ -36,7 +36,7 @@ export default async function Page() {
   }
 
   return (
-    <section className="min-h-screen bg-white mx-2  md:mx-auto md:w-[742px]   relative">
+    <section className="min-h-screen bg-white mx-4 md:mx-auto md:w-[742px]   relative">
       <H1>guestbook :p</H1>
       <Client></Client>
       {entries?.map((entry) => (

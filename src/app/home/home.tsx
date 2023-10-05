@@ -9,7 +9,7 @@ import { ExperienceCard } from "../components/experienceCard";
 
 export default function Home(){
     return(
-        <main className="min-h-screen bg-white mx-2  md:mx-auto md:w-[742px]  relative">
+        <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
         <H1>home</H1>
         <ul className="flex flex-col">
           <li>
