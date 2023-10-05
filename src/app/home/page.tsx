@@ -30,7 +30,7 @@ export default function Page() {
       <div className="grid grid-flow-row md:grid-cols-2 grid-cols-1 row-auto w-full h-max gap-2">
 
 
-        <ExperienceCard alt="botbuilt logo" image="/botbuilt.png" href="https://botbuilt.com" rows={1} cols={2} title='Software and Electronics Engineering' time='2023 - present' borderClassname="bg-neutral-50" bgClassname=" bg-neutral-50" >
+        <ExperienceCard alt="botbuilt logo" image="/botbuilt.png" width={160} href="https://botbuilt.com" rows={1} cols={2} title='Software and Electronics Engineering'  time='2023 - present' borderClassname="bg-neutral-50" bgClassname=" bg-neutral-50" >
         <p className="mt-4">Description of my work at Botbuilt</p>
           <ul className="mt-2 pl-4">
             <li>This is a list</li>
@@ -62,7 +62,7 @@ export default function Page() {
         </ExperienceCard>
 
 
-        <ExperienceCard rows={1} cols={1} title='Live TV Crew' time='summer 2023' borderClassname=" bg-neutral-50" bgClassname=" neutral-50" >
+        <ExperienceCard rows={1} cols={1} title='Live TV Crew' time='summer 2023' borderClassname=" bg-neutral-50" bgClassname=" neutral-50" image="/durham.png"  width={48}  alt="Durham Bulls" href='https://www.milb.com/durham' >
           <div>hello im a child</div>
         </ExperienceCard>
 

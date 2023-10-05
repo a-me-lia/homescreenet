@@ -6,7 +6,7 @@ import LayoutWrapper from "./layoutWrapper";
 
 const vietnam = Be_Vietnam_Pro({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-vietnam",
 });
 
