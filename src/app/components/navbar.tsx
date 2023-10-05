@@ -55,7 +55,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex flex-col text-[18px] tracking-tighter font-mono ">
-      <div className="md:mx-auto md:w-[742px]  mx-4 h-max  flex flex-col fixed right-0 top-0 left-0 z-50 bg-gradient-to-b pb-4 from-white via-white to-transparent via-90% ">
+      <div className="md:mx-auto md:w-[742px]  mx-2 h-max  flex flex-col fixed right-0 top-0 left-0 z-50 bg-gradient-to-b pb-4 from-white via-white to-transparent via-90% ">
         <div className="flex flex-row md:mt-8 mt-10 ">
           <div className="flex flex-row items-baseline -mr-6 ">
             <Link href={"/"} className="md:block hidden" id="homescree.net">

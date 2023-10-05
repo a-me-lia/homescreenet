@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative ">
+    <section className="min-h-screen bg-white mx-2  md:mx-auto md:w-[742px]  relative ">
       <H1>resume</H1>
     </section>
   );
