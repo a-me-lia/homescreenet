@@ -38,20 +38,13 @@ export default function Navbar() {
     pathname = "/home";
   }
 
-  const [width, setWidth] = useState(0);
+
 
   let path = usePathname();
   path = path.slice(1);
   let pathitems = path.split("/");
   let level = pathitems.length;
 
-  useEffect(() => {
-    setWidth(
-      document.getElementById("path")?.offsetWidth
-        ? document.getElementById("path")?.offsetWidth!
-        : 0,
-    );
-  }, []);
 
   return (
     <nav className="flex flex-col text-[18px] tracking-tighter font-mono ">
@@ -59,7 +52,7 @@ export default function Navbar() {
         <div className="flex flex-row md:mt-8 mt-10 ">
           <div className="flex flex-row items-baseline -mr-6 ">
             <Link href={"/"} className="md:block hidden" id="homescree.net">
-              Homescree.net / &thinsp;
+              Homescree.net&nbsp; / &nbsp;
             </Link>
 
             {Object.entries(navItems).map(([path, { name, id }]) => {
@@ -68,7 +61,7 @@ export default function Navbar() {
                 <Link
                   key={path}
                   href={path}
-                  className={`pr-8 ${
+                  className={`pr-6 ${
                     isActive ? "text-neutral-900" : "text-neutral-300"
                   } transition-colors duration-1000`}
                 >
@@ -86,7 +79,7 @@ export default function Navbar() {
                   pathitems[1]
                 }`}
               >
-                / {pathitems[1]}
+               &nbsp; /&nbsp; {pathitems[1]}&nbsp;
               </Link>
             )}
             {level == 3 && (
@@ -97,7 +90,7 @@ export default function Navbar() {
                 }/${pathitems[2]}`}
               >
                 {" "}
-                / {pathitems[2]}
+                /&nbsp; {pathitems[2]}
               </Link>
             )}
           </h2>
