@@ -1,10 +1,6 @@
-
-
 import { Metadata } from "next";
 
 import Home from "./home";
-
-
 
 export const metadata: Metadata = {
   title: "Homescree.net | Matthew Guo",
@@ -13,7 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <Home></Home>
-  );
+  return <Home></Home>;
 }

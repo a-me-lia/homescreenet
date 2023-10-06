@@ -38,13 +38,10 @@ export default function Navbar() {
     pathname = "/home";
   }
 
-
-
   let path = usePathname();
   path = path.slice(1);
   let pathitems = path.split("/");
   let level = pathitems.length;
-
 
   return (
     <nav className="flex flex-col text-[18px] tracking-tighter font-mono ">
@@ -79,7 +76,7 @@ export default function Navbar() {
                   pathitems[1]
                 }`}
               >
-               &nbsp; /&nbsp; {pathitems[1]}&nbsp;
+                &nbsp; /&nbsp; {pathitems[1]}&nbsp;
               </Link>
             )}
             {level == 3 && (
