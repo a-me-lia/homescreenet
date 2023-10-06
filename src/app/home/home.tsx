@@ -197,7 +197,7 @@ export default function Home() {
             image="/kagamisister.png"
             width={60}
             alt="Tsukasa :p"
-            href="https://"
+            href="/home"
           >
             <p className="mt-4 mb-4">I have wanted to bend electrons to my will since I was young enough for my age to be expressed in three bits.  <br /> When I can&apos;t do high voltage projects, I often make crazy analog electronics such as this <span className=" text-pink-600">osu!</span> robot that beat the top 1 player globally.</p>
 <iframe width={width < 768 ? `${width - 72}`:'340'} height={180}  src="https://www.youtube.com/embed/B91gw8vaa2k?si=CqdBOO75b4zNBRQy&amp;start=20" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen></iframe>
@@ -228,8 +228,8 @@ export default function Home() {
             bgClassname=" neutral-50"
             image="/breadboard.png"
             width={80}
-            alt="Durham Bulls"
-            href="https://www.milb.com/durham"
+            alt="Breadboard stock svg"
+            href="/home"
           >
             <p className="mt-4">
               In my third year of middle school, I spearheaded, wrote and
