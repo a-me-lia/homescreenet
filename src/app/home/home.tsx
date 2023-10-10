@@ -3,12 +3,20 @@ import useWindowSize from "@/lib/window";
 
 import Link from "next/link";
 import H1 from "../components/h1";
-import Image from "next/image";
 
 import { ExperienceCard } from "../components/experienceCard";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const width = useWindowSize()
+  const[scroll, setScroll] = useState(0) 
+  useEffect(()=>{ if(typeof window != 'undefined'){ addEventListener("scroll", (event) => {setScroll(window.scrollY)}); } }) 
+  useEffect(()=>{ 
+  const cards = document.getElementsByTagName('ExperienceCard') 
+  for(let i = 0; i < cards.length-1; i++){ 
+    cards[i]
+  } 
+},[scroll])
   return (
     <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>home</H1>
