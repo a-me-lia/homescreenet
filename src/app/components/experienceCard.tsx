@@ -38,6 +38,7 @@ export const ExperienceCard: React.FC<CardProps> = ({
   }, []);
 
   return (
+    <section>
     <div
       className={` h-max ${borderClassname} rounded-lg p-0.5 font-light text-[14px]`}
     >
@@ -65,5 +66,6 @@ export const ExperienceCard: React.FC<CardProps> = ({
         {children}
       </div>
     </div>
+    </section>
   );
 };

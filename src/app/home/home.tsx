@@ -9,14 +9,23 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const width = useWindowSize()
-  const[scroll, setScroll] = useState(0) 
-  useEffect(()=>{ if(typeof window != 'undefined'){ addEventListener("scroll", (event) => {setScroll(window.scrollY)}); } }) 
+  const[scroll, setScroll] = useState(0)
+  const[rendered, setRendered] = useState(false)  
+  useEffect(()=>{ if(typeof window != 'undefined'){ addEventListener("scroll", (event) => {setScroll(window.scrollY);}); } 
+}) 
+
+  
   useEffect(()=>{ 
-  const cards = document.getElementsByTagName('ExperienceCard') 
-  for(let i = 0; i < cards.length-1; i++){ 
-    cards[i]
+  const cards = document.getElementsByTagName('section')
+  console.log(cards.length)
+  for(let j = 0; j <= cards.length-1; j++){ 
+  const arr = [1,2,5,3,4]
+  const i = arr[j]
+
+  cards[j].style.transform = `translate(0px, ${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll-50*i)*i*2 -800) : 0}px)`;
   } 
-},[scroll])
+  if(scroll > 50){  setRendered(true)}
+  },[scroll])
   return (
     <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>home</H1>
@@ -29,7 +38,8 @@ export default function Home() {
         </li>
       </ul>
 
-      <div className="mt-24 mb-6">experience</div>
+      <div className="mt-64 mb-6">experience</div>
+      <div className="relative w-full transition-all duration-300  z-50" style={{height: `${rendered ? '0' : '100vh'}`}}></div>
 
 { width <768 &&(      <div className="flex flex-col w-full h-max  md:space-y-2 space-y-2">
         <ExperienceCard
@@ -139,9 +149,6 @@ export default function Home() {
 <iframe width={width < 768 ? `${width - 72}`:'340'} height={180}  src="https://www.youtube.com/embed/B91gw8vaa2k?si=CqdBOO75b4zNBRQy&amp;start=20" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen></iframe>
             </ExperienceCard>
 
-
-
-
         </div>
       </div>)}
 { width >= 768 && (
@@ -173,8 +180,8 @@ export default function Home() {
           </li>
         </ul>
       </ExperienceCard>
-      <div className="flex md:flex-row flex-col-reverse  w-full md:space-x-2 md:space-y-0 space-y-2 ">
-        <div className="flex flex-col w-full md:w-1/2 space-y-2">
+      <div className="flex md:flex-row w-full md:space-x-2  ">
+        <div className="flex flex-col w-full md:w-1/2 space-y-2 ">
           <ExperienceCard
             title="Web Development"
             time="2023 - present"
@@ -211,7 +218,7 @@ export default function Home() {
 <iframe width={width < 768 ? `${width - 72}`:'340'} height={180}  src="https://www.youtube.com/embed/B91gw8vaa2k?si=CqdBOO75b4zNBRQy&amp;start=20" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen></iframe>
           </ExperienceCard>
         </div>
-        <div className="flex flex-col  w-full md:w-1/2  space-y-2">
+        <div className="flex flex-col w-full md:w-1/2 space-y-2">
           <ExperienceCard
             title="Live TV Crew"
             time="summer 2023"
