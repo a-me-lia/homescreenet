@@ -2,27 +2,42 @@
 import useWindowSize from "@/lib/window";
 
 import Link from "next/link";
-import H1 from "../components/h1";
 
+import H1 from "../components/h1";
 import { ExperienceCard } from "../components/experienceCard";
+
+
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const width = useWindowSize()
   const[scroll, setScroll] = useState(0)
   const[rendered, setRendered] = useState(false)  
-  useEffect(()=>{ if(typeof window != 'undefined'){ addEventListener("scroll", (event) => {setScroll(window.scrollY);}); } 
+  let sectionHeight = 0
+  const cards = document.getElementsByTagName('section')
+  for(let j = 0; j <= cards.length-1; j++){ 
+    const arr = [0, 1, 2, 3]
+    if(arr.includes(j))sectionHeight += cards[j].clientHeight + 16
+    console.log(sectionHeight)
+  }
+
+  useEffect(()=>{ if(typeof window != 'undefined'){ addEventListener("scroll", (event) => {setScroll(window.scrollY);});
+
+
+} 
 }) 
 
   
   useEffect(()=>{ 
   const cards = document.getElementsByTagName('section')
   console.log(cards.length)
+  // document.getElementById("container")!.style.transform = `translate(0px, ${scroll/2}px)`
   for(let j = 0; j <= cards.length-1; j++){ 
   const arr = [1,2,5,3,4]
   const i = arr[j]
 
-  cards[j].style.transform = `translate(0px, ${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll-50*i)*i*2 -800) : 0}px)`;
+   cards[j].style.transform = `translate(0px,${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? ((1000*(i)-(scroll -50*i)*i*2 -800) < innerHeight? (1000*(i)-(scroll -50*i)*i*2 -800) : innerHeight ): 0}px)`;
+   //${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll -50*i)*i*2 -800) : 0}
   } 
   if(scroll > 50){  setRendered(true)}
   },[scroll])
@@ -41,7 +56,7 @@ export default function Home() {
       <div className="mt-64 mb-6">experience</div>
       <div className="relative w-full transition-all duration-300  z-50" style={{height: `${rendered ? '0' : '100vh'}`}}></div>
 
-{ width <768 &&(      <div className="flex flex-col w-full h-max  md:space-y-2 space-y-2">
+{ width <768 &&(      <div id='container' className="flex flex-col w-full h-max  md:space-y-2 space-y-2">
         <ExperienceCard
           alt="botbuilt logo"
           image="/botbuilt.png"
@@ -69,7 +84,7 @@ export default function Home() {
             </li>
           </ul>
         </ExperienceCard>
-        <div className="flex flex-col  w-full md:space-x-2 md:space-y-0 space-y-2 ">
+
 
             <ExperienceCard
               title="Web Development"
@@ -148,11 +163,10 @@ export default function Home() {
               <p className="mt-4 mb-4">I have wanted to bend electrons to my will since I was young enough for my age to be expressed in three bits.  <br /> When I can&apos;t do high voltage projects, I often make crazy analog electronics such as this <Link href='https://osu.ppy.sh/home'><span className="hover:underline text-pink-600">osu!</span></Link> robot that easily beat the top 1 player globally.</p>
 <iframe width={width < 768 ? `${width - 72}`:'340'} height={180}  src="https://www.youtube.com/embed/B91gw8vaa2k?si=CqdBOO75b4zNBRQy&amp;start=20" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen></iframe>
             </ExperienceCard>
-
-        </div>
+            <div style={{transform: `translate(0px, ${innerHeight}`}} id='buffer' className="w-full h-1"></div>
       </div>)}
 { width >= 768 && (
-      <div className="flex flex-col w-full h-max  md:space-y-2 space-y-2">
+      <div id='container' style={{height: sectionHeight}} className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2">
       <ExperienceCard
         alt="botbuilt logo"
         image="/botbuilt.png"
@@ -263,6 +277,7 @@ export default function Home() {
           </ExperienceCard>
         </div>
       </div>
+      <div id='buffer' className="w-full h-1"></div>
     </div>
 )}
 
