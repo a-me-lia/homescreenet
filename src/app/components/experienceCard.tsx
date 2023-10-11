@@ -38,7 +38,7 @@ export const ExperienceCard: React.FC<CardProps> = ({
   }, []);
 
   return (
-    <section>
+    <section className="transition-all duration-500">
       <div
         className={` h-max ${borderClassname} rounded-lg p-0.5 font-light text-[14px]`}
       >

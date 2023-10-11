@@ -20,43 +20,44 @@ export default function Home() {
     for (let j = 0; j <= cards.length - 1; j++) {
       const arr = [0, 1, 2, 3];
       if (arr.includes(j)) sectionHeight += cards[j].clientHeight + 16;
-      console.log(sectionHeight);
+      // console.log(sectionHeight);
     }
   }
 
   useEffect(() => {
     if (typeof window != "undefined") {
-      addEventListener("scroll", (event) => {
+      setScroll(window.scrollY);
+      window.addEventListener("scroll", (event) => {
         setScroll(window.scrollY);
       });
-      addEventListener("resize", (event) => {
+      setHeight(window.innerHeight)
+      window.addEventListener("resize", (event) => {
         setHeight(window.innerHeight);
       });
     }
-  });
+  }, []);
 
   useEffect(() => {
-    const cards = document.getElementsByTagName("section");
-    console.log(cards.length);
+    const cards = document.getElementsByTagName("section"); 
+    const top = document.getElementById('container')!.getBoundingClientRect().top
+    let shown = [false, false, false, false, false]
+  
     // document.getElementById("container")!.style.transform = `translate(0px, ${scroll/2}px)`
     for (let j = 0; j <= cards.length - 1; j++) {
       const md = [1, 2, 5, 3, 4];
       const sm = [1, 2, 3, 4, 5];
       const i = width >= 768 ? md[j] : sm[j];
 
+      console.log(height - top)
       cards[j].style.transform = `translate(0px,${
-        1000 * i - (scroll - 50 * i) * i * 2 - 800 >= 0
-          ? 1000 * i - (scroll - 50 * i) * i * 2 - 800 < innerHeight
-            ? 1000 * i - (scroll - 50 * i) * i * 2 - 800
-            : innerHeight
-          : 0
+shown[j] ? 0 : height
       }px)`;
       //${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll -50*i)*i*2 -800) : 0}
     }
     if (scroll > 50) {
       setRendered(true);
     }
-  }, [scroll, width]);
+  }, [height, scroll, width]);
   return (
     <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>home</H1>
@@ -204,9 +205,9 @@ export default function Home() {
       )}
       {width >= 768 && (
         <div
-          id="container"
-          style={{ height: sectionHeight }}
-          className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2"
+        id="container"
+        style={{ height: sectionHeight }}
+        className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2"
         >
           <ExperienceCard
             alt="botbuilt logo"
@@ -336,6 +337,7 @@ export default function Home() {
           </div>
         </div>
       )}
+
     </main>
   );
 }
