@@ -13,10 +13,16 @@ export default function Home() {
   const [height, setHeight] = useState(0);
   const [scroll, setScroll] = useState(0);
 
-  let sectionHeight = 0
+  let sectionHeight = 0;
 
-  if (typeof document != 'undefined' && typeof document.getElementById('container')?.getBoundingClientRect() != "undefined") {
-    sectionHeight = document.getElementById('container')!.getBoundingClientRect().top
+  if (
+    typeof document != "undefined" &&
+    typeof document.getElementById("container")?.getBoundingClientRect() !=
+      "undefined"
+  ) {
+    sectionHeight = document
+      .getElementById("container")!
+      .getBoundingClientRect().top;
   }
 
   useEffect(() => {
@@ -25,7 +31,7 @@ export default function Home() {
       window.addEventListener("scroll", (event) => {
         setScroll(window.scrollY);
       });
-      setHeight(window.innerHeight)
+      setHeight(window.innerHeight);
       window.addEventListener("resize", (event) => {
         setHeight(window.innerHeight);
       });
@@ -33,32 +39,29 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const cards = document.getElementsByTagName("section"); 
+    const cards = document.getElementsByTagName("section");
 
-    let shown = [false, false, false, false, false]
-    let number = width >= 768 ? (height - sectionHeight)/200 : (height - sectionHeight)/400
-    console.log(number)
-    for(let j = 0; j < number; j++){
+    let shown = [false, false, false, false, false];
+    let number =
+      width >= 768
+        ? (height - sectionHeight) / 200
+        : (height - sectionHeight) / 400;
+    console.log(number);
+    for (let j = 0; j < number; j++) {
       const md = [1, 2, 4, 5, 3];
       const sm = [1, 2, 3, 4, 5];
       const i = width >= 768 ? md[j] : sm[j];
-      shown[i-1] = true
+      shown[i - 1] = true;
     }
-  
+
     // document.getElementById("container")!.style.transform = `translate(0px, ${scroll/2}px)`
     for (let j = 0; j <= cards.length - 1; j++) {
-
-
       // console.log(height - top)
-      cards[j].style.transform = `translate(0px,${
-shown[j] ? 0 : height
-      }px)`;
+      cards[j].style.transform = `translate(0px,${shown[j] ? 0 : height}px)`;
       //${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll -50*i)*i*2 -800) : 0}
     }
   }, [height, sectionHeight, width]);
 
-
-  
   return (
     <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>home</H1>
@@ -72,16 +75,10 @@ shown[j] ? 0 : height
       </ul>
 
       <div className="mt-96 mb-6">experience</div>
-      <div
-        className="relative w-full transition-all duration-300  z-50"
-
-      ></div>
+      <div className="relative w-full transition-all duration-300  z-50"></div>
 
       {width < 768 && (
-        <div
-          id="container"
-          className="flex flex-col w-full h-max space-y-6"
-        >
+        <div id="container" className="flex flex-col w-full h-max space-y-6">
           <ExperienceCard
             alt="botbuilt logo"
             image="/botbuilt.png"
@@ -206,8 +203,8 @@ shown[j] ? 0 : height
       )}
       {width >= 768 && (
         <div
-        id="container"
-        className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2"
+          id="container"
+          className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2"
         >
           <ExperienceCard
             alt="botbuilt logo"
@@ -337,8 +334,6 @@ shown[j] ? 0 : height
           </div>
         </div>
       )}
-
-
     </main>
   );
 }
