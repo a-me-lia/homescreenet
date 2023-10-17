@@ -75,13 +75,13 @@ export async function SendEmail(
 export async function SendNews(email: string) {
   try {
     const data = await resend.emails.send({
-      from: "lia@yoaso.bi",
+      from: "lia@homescree.net",
       to: email,
       subject: "You email has been recieved!",
-      html: `Your email: ${email} will now receive site updates to yoaso.bi, as well as upcoming YOASOBI events and drops! :w:`,
+      html: `Your email: ${email} has been added! You'll now recieve news of site updates, and cool things. It's like a LinkedIn subscription, but better :p`,
     });
     resend.emails.send({
-      from: "postmaster@yoaso.bi",
+      from: "postmaster@homescree.net",
       to: "matthewguo.x86@gmail.com",
       subject: `New subscriber to yoaso.bi`,
       html: `
