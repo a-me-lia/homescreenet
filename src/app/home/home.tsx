@@ -14,14 +14,9 @@ export default function Home() {
   const [scroll, setScroll] = useState(0);
 
   let sectionHeight = 0
-  
 
   if (typeof document != "undefined") {
-    const cards = document.getElementsByTagName("section");
     sectionHeight = document.getElementById('container')!.getBoundingClientRect().top;
-
-console.log(height - sectionHeight)
-
   }
 
   useEffect(() => {
@@ -39,7 +34,6 @@ console.log(height - sectionHeight)
 
   useEffect(() => {
     const cards = document.getElementsByTagName("section"); 
-    const top = document.getElementById('container')!.getBoundingClientRect().top
 
     let shown = [false, false, false, false, false]
     let number = width >= 768 ? (height - sectionHeight)/200 : (height - sectionHeight)/400
