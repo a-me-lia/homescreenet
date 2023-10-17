@@ -12,16 +12,16 @@ export default function Home() {
   const width = useWindowSize();
   const [height, setHeight] = useState(0);
   const [scroll, setScroll] = useState(0);
-  const [rendered, setRendered] = useState(false);
-  let sectionHeight = 0;
+
+  let sectionHeight = 0
+  
 
   if (typeof document != "undefined") {
     const cards = document.getElementsByTagName("section");
-    for (let j = 0; j <= cards.length - 1; j++) {
-      const arr = [0, 1, 2, 3];
-      if (arr.includes(j)) sectionHeight += cards[j].clientHeight + 16;
-      // console.log(sectionHeight);
-    }
+    sectionHeight = document.getElementById('container')!.getBoundingClientRect().top;
+
+console.log(height - sectionHeight)
+
   }
 
   useEffect(() => {
@@ -40,24 +40,31 @@ export default function Home() {
   useEffect(() => {
     const cards = document.getElementsByTagName("section"); 
     const top = document.getElementById('container')!.getBoundingClientRect().top
+
     let shown = [false, false, false, false, false]
+    let number = width >= 768 ? (height - sectionHeight)/200 : (height - sectionHeight)/400
+    console.log(number)
+    for(let j = 0; j < number; j++){
+      const md = [1, 2, 4, 5, 3];
+      const sm = [1, 2, 3, 4, 5];
+      const i = width >= 768 ? md[j] : sm[j];
+      shown[i-1] = true
+    }
   
     // document.getElementById("container")!.style.transform = `translate(0px, ${scroll/2}px)`
     for (let j = 0; j <= cards.length - 1; j++) {
-      const md = [1, 2, 5, 3, 4];
-      const sm = [1, 2, 3, 4, 5];
-      const i = width >= 768 ? md[j] : sm[j];
 
-      console.log(height - top)
+
+      // console.log(height - top)
       cards[j].style.transform = `translate(0px,${
 shown[j] ? 0 : height
       }px)`;
       //${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll -50*i)*i*2 -800) : 0}
     }
-    if (scroll > 50) {
-      setRendered(true);
-    }
-  }, [height, scroll, width]);
+  }, [height, sectionHeight, width]);
+
+
+  
   return (
     <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>home</H1>
@@ -70,16 +77,16 @@ shown[j] ? 0 : height
         </li>
       </ul>
 
-      <div className="mt-64 mb-6">experience</div>
+      <div className="mt-96 mb-6">experience</div>
       <div
         className="relative w-full transition-all duration-300  z-50"
-        style={{ height: `${rendered ? "0" : "100vh"}` }}
+
       ></div>
 
       {width < 768 && (
         <div
           id="container"
-          className="flex flex-col w-full h-max  md:space-y-2 space-y-2"
+          className="flex flex-col w-full h-max space-y-6"
         >
           <ExperienceCard
             alt="botbuilt logo"
@@ -206,7 +213,6 @@ shown[j] ? 0 : height
       {width >= 768 && (
         <div
         id="container"
-        style={{ height: sectionHeight }}
         className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2"
         >
           <ExperienceCard
@@ -337,6 +343,7 @@ shown[j] ? 0 : height
           </div>
         </div>
       )}
+
 
     </main>
   );

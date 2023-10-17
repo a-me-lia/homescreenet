@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans, Be_Vietnam_Pro } from "next/font/google";
 import Navbar from "./components/navbar";
 import LayoutWrapper from "./layoutWrapper";
+import Footer from "./components/gooter";
 
 const vietnam = Be_Vietnam_Pro({
   subsets: ["latin"],
@@ -58,9 +59,8 @@ export default function RootLayout({
           <Navbar></Navbar>
           {children}
         </LayoutWrapper>
-        <div className="fixed bottom-1 left-2 text-[12px] text-black/25">
-          Matthew Guo
-        </div>
+
+        <Footer></Footer>
       </body>
     </html>
   );
