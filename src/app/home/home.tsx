@@ -15,7 +15,7 @@ export default function Home() {
 
   let sectionHeight = 0
 
-  if (typeof document.getElementById('container')?.getBoundingClientRect() != "undefined") {
+  if (typeof document != 'undefined' && typeof document.getElementById('container')?.getBoundingClientRect() != "undefined") {
     sectionHeight = document.getElementById('container')!.getBoundingClientRect().top
   }
 
