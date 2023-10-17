@@ -47,7 +47,7 @@ export async function SendEmail(
 ) {
   try {
     const data = await resend.emails.send({
-      from: "matthew@homescree.net",
+      from: "lia@homescree.net",
       to: email,
       subject: "Your message has been sent!",
       html: `<div>

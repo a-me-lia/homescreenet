@@ -11,8 +11,8 @@ export default function Footer() {
     <>
       {width >= 768 && (
         <div
-          className={`transition-all duration-[0.8s] ease-in-out  overflow-hidden text-white  bg-purple-500  ${
-            expand ? "h-48 mt-8" : "h-8 mt-48"
+          className={`transition-all duration-[0.8s] ease-in-out fixed bottom-0 w-full  overflow-hidden text-white  ${
+            expand ? " bg-purple-500  h-48 mt-8" : "  bg-purple-500/50 h-8 mt-48"
           }`}
           onMouseEnter={() => setExpand(true)}
           onMouseLeave={() => setExpand(false)}
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
       )}
       {width < 768 && (
-        <div className="mt-48 py-4 h-max md:h-48 bg-purple-500 text-white z-50">
+        <div className="mt-48 relative z-50 py-4 h-max md:h-48 bg-purple-500 text-white ">
           <div className="flex flex-col justify-between mb-32 px-2  items-center h-full">
 
                 <h1 className="">Matthew Guo</h1>
