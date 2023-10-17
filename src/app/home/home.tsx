@@ -15,8 +15,8 @@ export default function Home() {
 
   let sectionHeight = 0
 
-  if (typeof document != "undefined") {
-    sectionHeight = document.getElementById('container')!.getBoundingClientRect().top;
+  if (typeof document.getElementById('container')?.getBoundingClientRect() != "undefined") {
+    sectionHeight = document.getElementById('container')!.getBoundingClientRect().top
   }
 
   useEffect(() => {
