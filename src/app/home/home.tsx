@@ -41,15 +41,15 @@ export default function Home() {
   useEffect(() => {
     const cards = document.getElementsByTagName("section");
 
-    let shown = [false, false, false, false, false];
+    let shown = [false, false, false, false, false, false];
     let number =
       width >= 768
         ? (height - sectionHeight) / 200
         : (height - sectionHeight) / 400;
     console.log(number);
     for (let j = 0; j < number; j++) {
-      const md = [1, 2, 4, 5, 3];
-      const sm = [1, 2, 3, 4, 5];
+      const md = [1, 2, 5, 6, 3, 7, 4];
+      const sm = [1, 2, 3, 4, 5, 6, 7];
       const i = width >= 768 ? md[j] : sm[j];
       shown[i - 1] = true;
     }
@@ -78,7 +78,7 @@ export default function Home() {
       <div className="relative w-full transition-all duration-300  z-50"></div>
 
       {width < 768 && (
-        <div id="container" className="flex flex-col w-full h-max space-y-6">
+        <div id="container" className="flex flex-col w-full h-max space-y-6 mb-48">
           <ExperienceCard
             alt="botbuilt logo"
             image="/botbuilt.png"
@@ -170,6 +170,26 @@ export default function Home() {
             </p>
           </ExperienceCard>
           <ExperienceCard
+                title="Classical Pianist"
+                time="Every Day"
+                borderClassname=" bg-neutral-50"
+                bgClassname=" neutral-50"
+                image="/rach3.png"
+                width={120}
+                alt="Orchestral section 58 of Rach 3"
+                href="/home"
+              >
+                <p className="mt-4">
+                  Even though I started way too late playing piano to be a god, I think of myself as the one who loves music the most in the world. 
+                  <br/><br/>
+                  Currently, one of my favorite compositions is Rachmaninov&apos;s 3rd Concerto. I love the whole 50-minute transcendental performance, but the 3rd mvt., &lsquo;Alla Breve&rsquo; stands out as especially magical.
+                  I also enjoy playing music from my favorite pieces of film, like an arrangement of the soundtrack from <Link className="text-cyan-500 hover:underline" href='https://www.google.com/search?safe=active&sca_esv=574468921&sxsrf=AM9HkKmo5fdeM0ei2-hURcE1TR1etKTvrQ:1697645657720&q=Suzume+No+Tojimari&stick=H4sIAAAAAAAAAONgFuLUz9U3MErPSzFW4tVP1zc0LMhOK66wNMvSkshOttIvSM0vyEkFUkXF-XlWufllmanFi1iFgkurSnNTFfzyFULyszJzE4syd7AyAgB7Bay4TgAAAA&sa=X&ved=2ahUKEwjXzYfz_v-BAxWFnGoFHbpJBCEQgOQBegQILBAE&biw=1440&bih=783&dpr=2'>Suzume</Link>
+                  <br/><br/>
+                  You can watch my performances <Link className="text-red-500 hover:underline" href='https://youtu.be/@marinzsh'>here</Link>
+                </p>
+              </ExperienceCard>
+
+          <ExperienceCard
             title="High Voltage Enthusiast"
             time="all the time"
             borderClassname=" bg-neutral-50"
@@ -199,12 +219,13 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </ExperienceCard>
+          <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full"></section>g
         </div>
       )}
       {width >= 768 && (
         <div
           id="container"
-          className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2"
+          className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2 mb-48"
         >
           <ExperienceCard
             alt="botbuilt logo"
@@ -257,38 +278,31 @@ export default function Home() {
                 </p>
               </ExperienceCard>
               <ExperienceCard
-                title="High Voltage Enthusiast"
-                time="all the time"
+                title="Classical Pianist"
+                time="Every Day"
                 borderClassname=" bg-neutral-50"
                 bgClassname=" neutral-50"
-                imageClassname="translate-y-[3px]"
-                image="/kagamisister.png"
-                width={60}
-                alt="Tsukasa :p"
+                image="/rach3.png"
+                width={120}
+                alt="Orchestral section 58 of Rach 3"
                 href="/home"
               >
-                <p className="mt-4 mb-4">
-                  I have wanted to bend electrons to my will since I was young
-                  enough for my age to be expressed in three bits. <br /> When I
-                  can&apos;t do high voltage projects, I often make crazy analog
-                  electronics such as this{" "}
-                  <Link href="https://osu.ppy.sh/home">
-                    <span className="hover:underline text-pink-600">osu!</span>
-                  </Link>{" "}
-                  robot that beat the top 1 player globally.
+                <p className="mt-4">
+                  Even though I started way too late playing piano to be a god, I think of myself as the one who loves music the most in the world. 
+                  <br/><br/>
+                  Currently, one of my favorite compositions is Rachmaninov&apos;s 3rd Concerto. I love the whole 50-minute transcendental performance, but the 3rd mvt., &lsquo;Alla Breve&rsquo; stands out as especially magical.
+                  I also enjoy playing music from my favorite pieces of film, like an arrangement of the soundtrack from <Link className="text-cyan-500 hover:underline" href='https://www.google.com/search?safe=active&sca_esv=574468921&sxsrf=AM9HkKmo5fdeM0ei2-hURcE1TR1etKTvrQ:1697645657720&q=Suzume+No+Tojimari&stick=H4sIAAAAAAAAAONgFuLUz9U3MErPSzFW4tVP1zc0LMhOK66wNMvSkshOttIvSM0vyEkFUkXF-XlWufllmanFi1iFgkurSnNTFfzyFULyszJzE4syd7AyAgB7Bay4TgAAAA&sa=X&ved=2ahUKEwjXzYfz_v-BAxWFnGoFHbpJBCEQgOQBegQILBAE&biw=1440&bih=783&dpr=2'>Suzume</Link>
+                  <br/><br/>
+                  You can watch my performances <Link className="text-red-500 hover:underline" href='https://youtu.be/@marinzsh'>here</Link>
                 </p>
-                <iframe
-                  width={width < 768 ? `${width - 72}` : "340"}
-                  height={180}
-                  src="https://www.youtube.com/embed/B91gw8vaa2k?si=CqdBOO75b4zNBRQy&amp;start=20"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                  allowFullScreen
-                ></iframe>
               </ExperienceCard>
+
+              <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full"></section>
+
+              
             </div>
             <div className="flex flex-col w-full md:w-1/2 space-y-2">
-              <ExperienceCard
+              <ExperienceCard 
                 title="Live TV Crew"
                 time="summer 2023"
                 borderClassname=" bg-neutral-50"
@@ -329,6 +343,36 @@ export default function Home() {
                   to teach the &lsquo;underclassmen&rsquo; the fundamentals of
                   digital circuits and electronics. <br />
                 </p>
+              </ExperienceCard>
+              <ExperienceCard
+                title="High Voltage Enthusiast"
+                time="all the time"
+                borderClassname=" bg-neutral-50"
+                bgClassname=" neutral-50"
+                imageClassname="translate-y-[3px]"
+                image="/kagamisister.png"
+                width={60}
+                alt="Tsukasa :p"
+                href="/home"
+              >
+                <p className="mt-4 mb-4">
+                  I have wanted to bend electrons to my will since I was young
+                  enough for my age to be expressed in three bits. <br /> When I
+                  can&apos;t do high voltage projects, I often make crazy analog
+                  electronics such as this{" "}
+                  <Link href="https://osu.ppy.sh/home">
+                    <span className="hover:underline text-pink-600">osu!</span>
+                  </Link>{" "}
+                  robot that beat the top 1 player globally.
+                </p>
+                <iframe
+                  width={width < 768 ? `${width - 72}` : "340"}
+                  height={180}
+                  src="https://www.youtube.com/embed/B91gw8vaa2k?si=CqdBOO75b4zNBRQy&amp;start=20"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                  allowFullScreen
+                ></iframe>
               </ExperienceCard>
             </div>
           </div>
