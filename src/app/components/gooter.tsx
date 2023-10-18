@@ -32,13 +32,13 @@ export default function Footer() {
                     <Link className=" hover:underline" href="/home">
                       home
                     </Link>
-                    <Link className=" hover:underline" href="/home">
+                    <Link className=" hover:underline" href="/blog">
                       blog
                     </Link>
-                    <Link className=" hover:underline" href="/home">
+                    <Link className=" hover:underline" href="/guestbook">
                       guestbook
                     </Link>
-                    <Link className=" hover:underline" href="/home">
+                    <Link className=" hover:underline" href="/contact">
                       contact
                     </Link>
                     <Link className=" hover:underline" href="/sitemap.xml">
