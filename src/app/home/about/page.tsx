@@ -35,7 +35,7 @@ export default function Page() {
           </Link>
         ))}
         <div className="relative w-full h-48">
-        <Image src='/osu3.png' fill alt=''></Image>
+        <Image src='/osu3.png' fill alt='' className="object-cover"></Image>
         </div>
 
     </section>
