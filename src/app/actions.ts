@@ -28,7 +28,7 @@ export async function addSub(email: string) {
   await queryBuilder
     .insertInto("subscribers")
     .values({email})
-    .onDuplicateKeyUpdate({})
+    .onDuplicateKeyUpdate({email})
     .execute();
   return;
 }
@@ -83,6 +83,7 @@ export async function SendEmail(
 }
 
 export async function SendNews(email: string) {
+  addSub(email)
   try {
     const data = await resend.emails.send({
       from: "lia@homescree.net",
@@ -97,7 +98,6 @@ export async function SendNews(email: string) {
       html: `
       New subscriber to yoaso.bi: ${email}`,
     });
-    addSub(email)
     return data;
   } catch (error) {
     return error;
