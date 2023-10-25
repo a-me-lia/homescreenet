@@ -58,12 +58,13 @@ export default function Home() {
     for (let j = 0; j <= cards.length - 1; j++) {
       // console.log(height - top)
       cards[j].style.transform = `translate(0px,${shown[j] ? 0 : height}px)`;
+
       //${(1000*(i)-(scroll - 50*i)*i*2 - 800) >= 0 ? (1000*(i)-(scroll -50*i)*i*2 -800) : 0}
     }
   }, [height, sectionHeight, width]);
 
   return (
-    <main className="min-h-screen bg-white mx-4  md:mx-auto md:w-[742px]  relative">
+    <main className="min-h-screen  bg-white mx-4  md:mx-auto md:w-[742px]  relative">
       <H1>home</H1>
       <ul className="flex flex-col">
         <li>
@@ -225,7 +226,7 @@ export default function Home() {
       {width >= 768 && (
         <div
           id="container"
-          className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2 mb-48"
+          className="flex flex-col w-full  overflow-hidden md:space-y-2 space-y-2 mb-64"
         >
           <ExperienceCard
             alt="botbuilt logo"

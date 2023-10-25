@@ -2,11 +2,56 @@
 import Link from "next/link";
 import SignUpButton from "./signupbutton";
 import useWindowSize from "@/lib/window";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
   const width = useWindowSize();
   const [expand, setExpand] = useState(false);
+
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      setScroll(window.scrollY);
+      window.addEventListener("scroll", (event) => {
+        setScroll(window.scrollY);
+      });
+    }
+  }, []);
+
+
+  useEffect(()=>{
+
+      function getDocHeight() {
+        if(typeof document != "undefined"){
+        var D = document;
+        // return Math.max(
+        //     D.body.scrollHeight, D.documentElement.scrollHeight,
+        //     D.body.offsetHeight, D.documentElement.offsetHeight,
+        //     D.body.clientHeight, D.documentElement.clientHeight
+        // );
+        return D.documentElement.scrollHeight - 900
+    }
+    return 0;
+    }
+    console.log(scroll)
+    console.log(getDocHeight())
+    
+    if(scroll > getDocHeight() && getDocHeight() >= window.innerHeight){
+      setExpand(true)
+    }else{
+      setExpand(false)
+    }
+
+  }, [scroll])
+
+
+
+
+
+
+  
+
   return (
     <>
       {width >= 768 && (
