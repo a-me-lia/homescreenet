@@ -44,7 +44,18 @@ export default function Footer() {
     }
 
   }, [scroll])
-
+  function getDocHeight() {
+    if(typeof document != "undefined"){
+    var D = document;
+    // return Math.max(
+    //     D.body.scrollHeight, D.documentElement.scrollHeight,
+    //     D.body.offsetHeight, D.documentElement.offsetHeight,
+    //     D.body.clientHeight, D.documentElement.clientHeight
+    // );
+    return D.documentElement.scrollHeight - 900
+}
+return 0;
+}
 
 
 
@@ -60,8 +71,9 @@ export default function Footer() {
             expand ? " bg-purple-500  h-48 mt-8" : "  bg-purple-500/50 h-8 mt-48"
           }`}
           onMouseEnter={() => setExpand(true)}
-          onMouseLeave={() => setExpand(false)}
-        >
+          onMouseLeave={() => {
+            if(scroll < getDocHeight()){setExpand(false)}
+          }}>
           {true && (
             <>
               <div
