@@ -23,6 +23,16 @@ export async function increment(slug: string) {
   return;
 }
 
+export async function addSub(email: string) {
+
+  await queryBuilder
+    .insertInto("subscribers")
+    .values({email})
+    .onDuplicateKeyUpdate({})
+    .execute();
+  return;
+}
+
 export async function saveGuestbookEntry(
   email: string,
   body: string,
@@ -77,7 +87,7 @@ export async function SendNews(email: string) {
     const data = await resend.emails.send({
       from: "lia@homescree.net",
       to: email,
-      subject: "You email has been recieved!",
+      subject: "You're onboard!",
       html: `Your email: ${email} has been added! You'll now recieve news of site updates, and cool things. It's like a LinkedIn subscription, but better :p`,
     });
     resend.emails.send({
@@ -87,6 +97,7 @@ export async function SendNews(email: string) {
       html: `
       New subscriber to yoaso.bi: ${email}`,
     });
+    addSub(email)
     return data;
   } catch (error) {
     return error;

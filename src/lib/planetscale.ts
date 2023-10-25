@@ -15,9 +15,14 @@ interface ViewsTable {
   count: number;
 }
 
+interface SubscribersTable {
+  email: string;
+}
+
 interface Database {
   guestbook: GuestbookTable;
   views: ViewsTable;
+  subscribers: SubscribersTable;
 }
 
 export const queryBuilder = new Kysely<Database>({
