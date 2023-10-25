@@ -3,6 +3,7 @@ import { allAboutPages } from "@/../.contentlayer/generated";
 import Link from "next/link";
 import H1 from "@/app/components/h1";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About | Matthew Guo",
@@ -33,6 +34,11 @@ export default function Page() {
             </div>
           </Link>
         ))}
+        <div className="relative w-full h-48">
+        <Image src='/osu3.png' fill alt=''></Image>
+        </div>
+
     </section>
+    
   );
 }
