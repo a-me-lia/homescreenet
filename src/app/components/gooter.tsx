@@ -103,6 +103,7 @@ return 0;
                     </Link>
                   </div>
                 </div>
+                <Link href='https://emelia.pl'><h1 className="hover:underline text-pink-400 text-[20px]">emelia.pl</h1></Link>
                 <SignUpButton></SignUpButton>
               </div>
 
