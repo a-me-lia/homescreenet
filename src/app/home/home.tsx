@@ -47,7 +47,7 @@ export default function Home() {
     let number =
       width >= 768
         ? (height - sectionHeight) / 200
-        : (height - sectionHeight) / 400;
+        : (height - sectionHeight) / 300;
     console.log(number);
     for (let j = 0; j < number; j++) {
       const md = [1, 2, 5, 6, 3, 7, 4];
@@ -220,7 +220,7 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </ExperienceCard>
-          <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full flex flex-row justify-center items-center">
+          <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full flex flex-row justify-center items-center py-4">
               <Link href="/home/resume" ><p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600"><Balancer>Read and download my <span className="hover:underline">resume/CV</span></Balancer></p></Link>
               </section>
         </div>

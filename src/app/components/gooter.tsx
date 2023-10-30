@@ -25,17 +25,12 @@ export default function Footer() {
       function getDocHeight() {
         if(typeof document != "undefined"){
         var D = document;
-        // return Math.max(
-        //     D.body.scrollHeight, D.documentElement.scrollHeight,
-        //     D.body.offsetHeight, D.documentElement.offsetHeight,
-        //     D.body.clientHeight, D.documentElement.clientHeight
-        // );
+
         return D.documentElement.scrollHeight - 900
     }
     return 0;
     }
-    console.log(scroll)
-    console.log(getDocHeight())
+
     
     if(scroll > getDocHeight() && getDocHeight() >= window.innerHeight){
       setExpand(true)
