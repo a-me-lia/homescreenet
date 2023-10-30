@@ -1,6 +1,8 @@
 "use client";
 import useWindowSize from "@/lib/window";
 
+import Balancer from "react-wrap-balancer";
+
 import Link from "next/link";
 
 import H1 from "../components/h1";
@@ -70,9 +72,7 @@ export default function Home() {
         <li>
           <Link href="/home/about">About me</Link>
         </li>
-        <li>
-          <Link href="/home/resume">Resume</Link>
-        </li>
+
       </ul>
 
       <div className="mt-96 mb-6">experience</div>
@@ -88,7 +88,7 @@ export default function Home() {
             title="Software/Electronics Engineering"
             time="2023 - present"
             borderClassname="bg-neutral-50"
-            bgClassname=" bg-neutral-50"
+            bgClassname=" bg-green-100"
           >
             <p className="mt-4">
               I somehow landed an internship as a second-year high school
@@ -111,7 +111,7 @@ export default function Home() {
           <ExperienceCard
             title="Web Development"
             time="2023 - present"
-            borderClassname="bg-gradient-to-br from-blue-500 to-cyan-300"
+            borderClassname="bg-neutral-50"
             bgClassname=" bg-cyan-50"
           >
             <p className="mt-4">
@@ -194,7 +194,7 @@ export default function Home() {
             title="High Voltage Enthusiast"
             time="all the time"
             borderClassname=" bg-neutral-50"
-            bgClassname=" neutral-50"
+            bgClassname="yellow-100"
             imageClassname="translate-y-[3px]"
             image="/kagamisister.png"
             width={60}
@@ -220,7 +220,9 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </ExperienceCard>
-          <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full"></section>g
+          <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full flex flex-row justify-center items-center">
+              <Link href="/home/resume" ><p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600"><Balancer>Read and download my <span className="hover:underline">resume/CV</span></Balancer></p></Link>
+              </section>
         </div>
       )}
       {width >= 768 && (
@@ -236,7 +238,7 @@ export default function Home() {
             title="Software/Electronics Engineering"
             time="2023 - present"
             borderClassname="bg-neutral-50"
-            bgClassname=" bg-neutral-50"
+            bgClassname=" bg-green-100"
           >
             <p className="mt-4">
               I somehow landed an internship as a second-year high school
@@ -260,7 +262,7 @@ export default function Home() {
               <ExperienceCard
                 title="Web Development"
                 time="2023 - present"
-                borderClassname="bg-gradient-to-br from-blue-500 to-cyan-300"
+                borderClassname="bg-neutral-50"
                 bgClassname=" bg-cyan-50"
               >
                 <p className="mt-4">
@@ -298,7 +300,9 @@ export default function Home() {
                 </p>
               </ExperienceCard>
 
-              <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full"></section>
+              <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full flex flex-row justify-center items-center">
+              <Link href="/home/resume" ><p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600"><Balancer>Read and download my <span className="hover:underline">resume/CV</span></Balancer></p></Link>
+              </section>
 
               
             </div>
@@ -349,7 +353,7 @@ export default function Home() {
                 title="High Voltage Enthusiast"
                 time="all the time"
                 borderClassname=" bg-neutral-50"
-                bgClassname=" neutral-50"
+                bgClassname="bg-yellow-100"
                 imageClassname="translate-y-[3px]"
                 image="/kagamisister.png"
                 width={60}
