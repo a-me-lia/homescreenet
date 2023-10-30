@@ -24,11 +24,10 @@ export async function increment(slug: string) {
 }
 
 export async function addSub(email: string) {
-
   await queryBuilder
     .insertInto("subscribers")
-    .values({email})
-    .onDuplicateKeyUpdate({email})
+    .values({ email })
+    .onDuplicateKeyUpdate({ email })
     .execute();
   return;
 }
@@ -83,7 +82,7 @@ export async function SendEmail(
 }
 
 export async function SendNews(email: string) {
-  addSub(email)
+  addSub(email);
   try {
     const data = await resend.emails.send({
       from: "lia@homescree.net",

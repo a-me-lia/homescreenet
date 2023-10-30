@@ -34,12 +34,17 @@ export default function Page() {
             </div>
           </Link>
         ))}
-        <div className="relative w-full h-48">
-          <div className=" z-50 text-white absolute top-0 bottom-0 left-0 right-0 mx-auto">TEXT GOES HERE</div>
-        <Image src='/osu.png' fill alt='' className="object-cover rounded-xl"></Image>
+      <div className="relative w-full h-48">
+        <div className=" z-50 text-white absolute top-0 bottom-0 left-0 right-0 mx-auto">
+          TEXT GOES HERE
         </div>
-
+        <Image
+          src="/osu.png"
+          fill
+          alt=""
+          className="object-cover rounded-xl"
+        ></Image>
+      </div>
     </section>
-    
   );
 }

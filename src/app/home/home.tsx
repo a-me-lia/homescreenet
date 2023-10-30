@@ -72,14 +72,16 @@ export default function Home() {
         <li>
           <Link href="/home/about">About me</Link>
         </li>
-
       </ul>
 
       <div className="mt-96 mb-6">experience</div>
       <div className="relative w-full transition-all duration-300  z-50"></div>
 
       {width < 768 && (
-        <div id="container" className="flex flex-col w-full h-max space-y-6 mb-48">
+        <div
+          id="container"
+          className="flex flex-col w-full h-max space-y-6 mb-48"
+        >
           <ExperienceCard
             alt="botbuilt logo"
             image="/botbuilt.png"
@@ -171,24 +173,42 @@ export default function Home() {
             </p>
           </ExperienceCard>
           <ExperienceCard
-                title="Classical Pianist"
-                time="Every Day"
-                borderClassname=" bg-neutral-50"
-                bgClassname=" neutral-50"
-                image="/rach3.png"
-                width={120}
-                alt="Orchestral section 58 of Rach 3"
-                href="/home"
+            title="Classical Pianist"
+            time="Every Day"
+            borderClassname=" bg-neutral-50"
+            bgClassname=" neutral-50"
+            image="/rach3.png"
+            width={120}
+            alt="Orchestral section 58 of Rach 3"
+            href="/home"
+          >
+            <p className="mt-4">
+              Even though I started way too late playing piano to be a god, I
+              think of myself as the one who loves music the most in the world.
+              <br />
+              <br />
+              Currently, one of my favorite compositions is Rachmaninov&apos;s
+              3rd Concerto. I love the whole 50-minute transcendental
+              performance, but the 3rd mvt., &lsquo;Alla Breve&rsquo; stands out
+              as especially magical. I also enjoy playing music from my favorite
+              pieces of film, like an arrangement of the soundtrack from{" "}
+              <Link
+                className="text-cyan-500 hover:underline"
+                href="https://www.google.com/search?safe=active&sca_esv=574468921&sxsrf=AM9HkKmo5fdeM0ei2-hURcE1TR1etKTvrQ:1697645657720&q=Suzume+No+Tojimari&stick=H4sIAAAAAAAAAONgFuLUz9U3MErPSzFW4tVP1zc0LMhOK66wNMvSkshOttIvSM0vyEkFUkXF-XlWufllmanFi1iFgkurSnNTFfzyFULyszJzE4syd7AyAgB7Bay4TgAAAA&sa=X&ved=2ahUKEwjXzYfz_v-BAxWFnGoFHbpJBCEQgOQBegQILBAE&biw=1440&bih=783&dpr=2"
               >
-                <p className="mt-4">
-                  Even though I started way too late playing piano to be a god, I think of myself as the one who loves music the most in the world. 
-                  <br/><br/>
-                  Currently, one of my favorite compositions is Rachmaninov&apos;s 3rd Concerto. I love the whole 50-minute transcendental performance, but the 3rd mvt., &lsquo;Alla Breve&rsquo; stands out as especially magical.
-                  I also enjoy playing music from my favorite pieces of film, like an arrangement of the soundtrack from <Link className="text-cyan-500 hover:underline" href='https://www.google.com/search?safe=active&sca_esv=574468921&sxsrf=AM9HkKmo5fdeM0ei2-hURcE1TR1etKTvrQ:1697645657720&q=Suzume+No+Tojimari&stick=H4sIAAAAAAAAAONgFuLUz9U3MErPSzFW4tVP1zc0LMhOK66wNMvSkshOttIvSM0vyEkFUkXF-XlWufllmanFi1iFgkurSnNTFfzyFULyszJzE4syd7AyAgB7Bay4TgAAAA&sa=X&ved=2ahUKEwjXzYfz_v-BAxWFnGoFHbpJBCEQgOQBegQILBAE&biw=1440&bih=783&dpr=2'>Suzume</Link>
-                  <br/><br/>
-                  You can watch my performances <Link className="text-red-500 hover:underline" href='https://youtu.be/@marinzsh'>here</Link>
-                </p>
-              </ExperienceCard>
+                Suzume
+              </Link>
+              <br />
+              <br />
+              You can watch my performances{" "}
+              <Link
+                className="text-red-500 hover:underline"
+                href="https://youtu.be/@marinzsh"
+              >
+                here
+              </Link>
+            </p>
+          </ExperienceCard>
 
           <ExperienceCard
             title="High Voltage Enthusiast"
@@ -221,8 +241,15 @@ export default function Home() {
             ></iframe>
           </ExperienceCard>
           <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full flex flex-row justify-center items-center py-4">
-              <Link href="/home/resume" ><p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600"><Balancer>Read and download my <span className="hover:underline">resume/CV</span></Balancer></p></Link>
-              </section>
+            <Link href="/home/resume">
+              <p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600">
+                <Balancer>
+                  Read and download my{" "}
+                  <span className="hover:underline">resume/CV</span>
+                </Balancer>
+              </p>
+            </Link>
+          </section>
         </div>
       )}
       {width >= 768 && (
@@ -291,23 +318,48 @@ export default function Home() {
                 href="/home"
               >
                 <p className="mt-4">
-                  Even though I started way too late playing piano to be a god, I think of myself as the one who loves music the most in the world. 
-                  <br/><br/>
-                  Currently, one of my favorite compositions is Rachmaninov&apos;s 3rd Concerto. I love the whole 50-minute transcendental performance, but the 3rd mvt., &lsquo;Alla Breve&rsquo; stands out as especially magical.
-                  I also enjoy playing music from my favorite pieces of film, like an arrangement of the soundtrack from <Link className="text-cyan-500 hover:underline" href='https://www.google.com/search?safe=active&sca_esv=574468921&sxsrf=AM9HkKmo5fdeM0ei2-hURcE1TR1etKTvrQ:1697645657720&q=Suzume+No+Tojimari&stick=H4sIAAAAAAAAAONgFuLUz9U3MErPSzFW4tVP1zc0LMhOK66wNMvSkshOttIvSM0vyEkFUkXF-XlWufllmanFi1iFgkurSnNTFfzyFULyszJzE4syd7AyAgB7Bay4TgAAAA&sa=X&ved=2ahUKEwjXzYfz_v-BAxWFnGoFHbpJBCEQgOQBegQILBAE&biw=1440&bih=783&dpr=2'>Suzume</Link>
-                  <br/><br/>
-                  You can watch my performances <Link className="text-red-500 hover:underline" href='https://youtu.be/@marinzsh'>here</Link>
+                  Even though I started way too late playing piano to be a god,
+                  I think of myself as the one who loves music the most in the
+                  world.
+                  <br />
+                  <br />
+                  Currently, one of my favorite compositions is
+                  Rachmaninov&apos;s 3rd Concerto. I love the whole 50-minute
+                  transcendental performance, but the 3rd mvt., &lsquo;Alla
+                  Breve&rsquo; stands out as especially magical. I also enjoy
+                  playing music from my favorite pieces of film, like an
+                  arrangement of the soundtrack from{" "}
+                  <Link
+                    className="text-cyan-500 hover:underline"
+                    href="https://www.google.com/search?safe=active&sca_esv=574468921&sxsrf=AM9HkKmo5fdeM0ei2-hURcE1TR1etKTvrQ:1697645657720&q=Suzume+No+Tojimari&stick=H4sIAAAAAAAAAONgFuLUz9U3MErPSzFW4tVP1zc0LMhOK66wNMvSkshOttIvSM0vyEkFUkXF-XlWufllmanFi1iFgkurSnNTFfzyFULyszJzE4syd7AyAgB7Bay4TgAAAA&sa=X&ved=2ahUKEwjXzYfz_v-BAxWFnGoFHbpJBCEQgOQBegQILBAE&biw=1440&bih=783&dpr=2"
+                  >
+                    Suzume
+                  </Link>
+                  <br />
+                  <br />
+                  You can watch my performances{" "}
+                  <Link
+                    className="text-red-500 hover:underline"
+                    href="https://youtu.be/@marinzsh"
+                  >
+                    here
+                  </Link>
                 </p>
               </ExperienceCard>
 
               <section className="bg-purple-500/20 transition-all duration-1000 rounded-md w-full h-full flex flex-row justify-center items-center">
-              <Link href="/home/resume" ><p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600"><Balancer>Read and download my <span className="hover:underline">resume/CV</span></Balancer></p></Link>
+                <Link href="/home/resume">
+                  <p className="text-white font-bold text-[18px] p-2 bg-purple-600 hover:bg-purple-400 transition-all duration-200 border-2 border-purple-600">
+                    <Balancer>
+                      Read and download my{" "}
+                      <span className="hover:underline">resume/CV</span>
+                    </Balancer>
+                  </p>
+                </Link>
               </section>
-
-              
             </div>
             <div className="flex flex-col w-full md:w-1/2 space-y-2">
-              <ExperienceCard 
+              <ExperienceCard
                 title="Live TV Crew"
                 time="summer 2023"
                 borderClassname=" bg-neutral-50"
