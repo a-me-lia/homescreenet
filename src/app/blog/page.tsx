@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getViewsCount } from "../../lib/metrics";
+import { Suspense } from "react";
 
 import Client from "./client";
 
@@ -13,7 +14,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Client allViews={allViews}></Client>
+      <Suspense><Client allViews={allViews}></Client></Suspense>
     </>
   );
 }

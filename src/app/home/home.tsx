@@ -214,7 +214,7 @@ export default function Home() {
             title="High Voltage Enthusiast"
             time="all the time"
             borderClassname=" bg-neutral-50"
-            bgClassname="yellow-100"
+            bgClassname="bg-yellow-100"
             imageClassname="translate-y-[3px]"
             image="/kagamisister.png"
             width={60}
